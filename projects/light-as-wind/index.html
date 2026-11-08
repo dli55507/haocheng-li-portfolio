@@ -35,7 +35,7 @@
     <header class="detailHero shell">
       <p class="eyebrow" data-reveal>Game project · USC Games · That Game Jam · Team of 5</p>
       <h1 data-reveal>Light as Wind</h1>
-      <p class="lede" data-reveal>A dreamy pixel-art side-scroller across the ocean, toward a faraway sky. I was a designer and engineer on the team: I owned three of the ten levels and built several of the physics, shader, and destruction systems the game runs on.</p>
+      <p class="lede" data-reveal>A dreamy pixel-art side-scroller across the ocean, toward a faraway sky. I was a designer and engineer on the team: I did the level design for three of the ten levels and built several of the physics, shader, and destruction systems the game runs on.</p>
       <div class="heroActions" data-reveal>
         <a class="btn primary" href="https://huxxshadow.itch.io/light-as-wind" target="_blank" rel="noreferrer">Play on itch.io ↗</a>
         <a class="btn" href="https://lightaswind.com/" target="_blank" rel="noreferrer">Official site ↗</a>
@@ -59,7 +59,7 @@
         <h2>Designer · Engineer</h2>
       </div>
       <div class="prose" data-reveal>
-        <p>I owned Levels 04, 06, and 10 end to end — scene, route, and mechanics — and worked on design, interactions, and bug fixes across all ten levels.</p>
+        <p>I did the level design for Levels 04, 06, and 10 — scene, route, and mechanics. Across the game I designed interaction mechanics, engineered gameplay logic and effects, and did QA and bug fixing.</p>
         <p>On the engineering side I focused on how things <em>feel</em> when they move: paper caught by the wind, the swordfish’s swimming, the crab’s vine swing, and props that break apart. I also wrote the shader for the game’s “air walls”.</p>
         <p>The project has a strict rule: every system’s logic lives in plain C# with no engine types, so it can move off Unity later, and every change is checked with data — probes, logs, and route bots — before screenshots.</p>
         <dl class="specs">
@@ -71,12 +71,29 @@
       </div>
     </section>
 
+    <section class="shell">
+      <div class="split" style="margin-bottom:40px">
+        <div data-reveal>
+          <p class="eyebrow">The foundation · built as a team</p>
+          <h2>Rendering &amp; procedural animation</h2>
+        </div>
+        <div class="prose" data-reveal>
+          <p>We worked out the game’s technical foundation together as a team: how to make pixel art hold up in a moving 3D perspective camera, and how to animate every creature without a single skeletal rig. The systems I built sit on top of it.</p>
+        </div>
+      </div>
+      <div class="features">
+        <article data-reveal><span class="num">01</span><h3>Custom render pipeline</h3><p>The game moved off URP in stages to its own pipeline, built on an engine-agnostic frame graph in plain C# with Unity as just one backend. Each step was checked texel by texel against reference frames. Shader variants went from 603 to 36, and a full frame costs about 0.4–0.5 ms of GPU.</p></article>
+        <article data-reveal><span class="num">02</span><h3>Pixel art in perspective</h3><p>Each object snaps rigidly to the low-resolution texel grid, and its leftover sub-pixel offset is stored in the G-buffer and resolved at screen resolution, so silhouettes never crawl while the camera glides. Soft bounce light comes from 2.5D radiance cascades with world-pinned probes, at about 0.3 ms.</p></article>
+        <article data-reveal><span class="num">03</span><h3>Procedural animation</h3><p>No skeletal rigs anywhere: fish spines driven by travelling waves, XPBD and Verlet chains, jellyfish simulated in compute shaders, and Boids schools of over 5,000 fish drawn in a single call.</p></article>
+      </div>
+    </section>
+
     <section class="systems">
       <div class="shell">
         <div class="sectionHead" data-reveal>
           <div>
             <p class="eyebrow">Level design</p>
-            <h2>Three levels I owned</h2>
+            <h2>Levels I designed</h2>
           </div>
         </div>
         <div class="gallery">

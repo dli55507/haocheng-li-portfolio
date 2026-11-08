@@ -35,7 +35,7 @@
     <header class="detailHero shell">
       <p class="eyebrow" data-reveal>ゲームプロジェクト · USC Games · That Game Jam · 5 人チーム</p>
       <h1 data-reveal>この身、風のごとく（Light as Wind）</h1>
-      <p class="lede" data-reveal>海を越え、遠い空を目指す、夢のようなピクセルアートの横スクロールゲームです。私はチームのデザイナー兼エンジニアとして、全 10 レベルのうち 3 つを担当し、ゲームを支える物理・シェーダー・破壊表現のシステムをいくつか構築しました。</p>
+      <p class="lede" data-reveal>海を越え、遠い空を目指す、夢のようなピクセルアートの横スクロールゲームです。私はチームのデザイナー兼エンジニアとして、全 10 レベルのうち 3 つのレベルデザインを手がけ、ゲームを支える物理・シェーダー・破壊表現のシステムをいくつか構築しました。</p>
       <div class="heroActions" data-reveal>
         <a class="btn primary" href="https://huxxshadow.itch.io/light-as-wind" target="_blank" rel="noreferrer">itch.io でプレイ ↗</a>
         <a class="btn" href="https://lightaswind.com/" target="_blank" rel="noreferrer">公式サイト ↗</a>
@@ -59,7 +59,7 @@
         <h2>デザイナー · エンジニア</h2>
       </div>
       <div class="prose" data-reveal>
-        <p>Level 04、06、10 の 3 レベルについて、シーン、ルート、メカニクスまで一貫して担当しました。さらに全 10 レベルにわたって、デザイン、インタラクション、バグ修正にも携わりました。</p>
+        <p>Level 04、06、10 のレベルデザイン（シーン、ルート、メカニクス）を手がけました。ゲーム全体では、インタラクションメカニクスの設計、ゲームプレイのロジックとエフェクトの実装、QA とバグ修正を行いました。</p>
         <p>エンジニアリング面では、動くものの<em>手触り</em>に注力しました。風にさらわれる紙、メカジキの泳ぎ、カニのツタ渡り、そして壊れて砕けるプロップなどです。また、ゲーム内の「空気の壁」のシェーダーも書きました。</p>
         <p>このプロジェクトには厳格なルールがあります。後から Unity 以外へ移行できるよう、各システムのロジックはエンジンの型を使わない純粋な C# で書くこと。そして、すべての変更はスクリーンショットより先に、プローブ、ログ、ルート検証ボットといったデータで確認することです。</p>
         <dl class="specs">
@@ -71,12 +71,29 @@
       </div>
     </section>
 
+    <section class="shell">
+      <div class="split" style="margin-bottom:40px">
+        <div data-reveal>
+          <p class="eyebrow">土台 · チームで構築</p>
+          <h2>レンダリング &amp; プロシージャルアニメーション</h2>
+        </div>
+        <div class="prose" data-reveal>
+          <p>ゲームの技術的な土台は、チームで議論して作り上げました。動く 3D の透視投影カメラの中でピクセルアートをどう崩さずに見せるか、そしてスケルタルリグを 1 つも使わずにすべての生き物をどう動かすか。私が構築したシステムは、この土台の上に成り立っています。</p>
+        </div>
+      </div>
+      <div class="features">
+        <article data-reveal><span class="num">01</span><h3>独自のレンダーパイプライン</h3><p>ゲームは段階的に URP から独自のパイプラインへ移行しました。土台は純粋な C# で書かれたエンジン非依存のフレームグラフで、Unity はバックエンドの 1 つにすぎません。各段階は参照フレームとテクセル単位で照合して検証しました。シェーダーバリアントは 603 から 36 に減り、1 フレーム全体の GPU コストは約 0.4–0.5 ms です。</p></article>
+        <article data-reveal><span class="num">02</span><h3>透視投影の中のピクセルアート</h3><p>各オブジェクトは低解像度のテクセルグリッドに剛体的にスナップし、残ったサブピクセルのずれを G-buffer に格納して画面解像度で解決します。そのため、カメラが滑らかに動いてもシルエットがちらつくことはありません。やわらかな間接光は、ワールドに固定したプローブを用いた 2.5D の Radiance Cascades によるもので、コストは約 0.3 ms です。</p></article>
+        <article data-reveal><span class="num">03</span><h3>プロシージャルアニメーション</h3><p>スケルタルリグは一切使っていません。進行波で動く魚の脊椎、XPBD と Verlet のチェーン、コンピュートシェーダーでシミュレーションするクラゲ、そして 1 回のドローコールで描かれる 5,000 匹を超える Boids の魚群です。</p></article>
+      </div>
+    </section>
+
     <section class="systems">
       <div class="shell">
         <div class="sectionHead" data-reveal>
           <div>
             <p class="eyebrow">レベルデザイン</p>
-            <h2>担当した 3 つのレベル</h2>
+            <h2>デザインしたレベル</h2>
           </div>
         </div>
         <div class="gallery">

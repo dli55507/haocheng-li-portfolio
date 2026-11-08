@@ -35,7 +35,7 @@
     <header class="detailHero shell">
       <p class="eyebrow" data-reveal>Projet de jeu · USC Games · That Game Jam · Équipe de 5</p>
       <h1 data-reveal>Light as Wind</h1>
-      <p class="lede" data-reveal>Un jeu de plateforme à défilement horizontal en pixel art, onirique, qui traverse l’océan vers un ciel lointain. J’étais designer et ingénieur dans l’équipe&nbsp;: j’ai pris en charge trois des dix niveaux et développé plusieurs des systèmes de physique, de shaders et de destruction sur lesquels repose le jeu.</p>
+      <p class="lede" data-reveal>Un jeu de plateforme à défilement horizontal en pixel art, onirique, qui traverse l’océan vers un ciel lointain. J’étais designer et ingénieur dans l’équipe&nbsp;: j’ai assuré le level design de trois des dix niveaux et développé plusieurs des systèmes de physique, de shaders et de destruction sur lesquels repose le jeu.</p>
       <div class="heroActions" data-reveal>
         <a class="btn primary" href="https://huxxshadow.itch.io/light-as-wind" target="_blank" rel="noreferrer">Jouer sur itch.io ↗</a>
         <a class="btn" href="https://lightaswind.com/" target="_blank" rel="noreferrer">Site officiel ↗</a>
@@ -59,7 +59,7 @@
         <h2>Designer · Ingénieur</h2>
       </div>
       <div class="prose" data-reveal>
-        <p>J’ai pris en charge les niveaux 04, 06 et 10 de bout en bout — scène, parcours et mécaniques — et j’ai travaillé sur le design, les interactions et la correction de bugs sur l’ensemble des dix niveaux.</p>
+        <p>J’ai assuré le level design des niveaux 04, 06 et 10 — scène, parcours et mécaniques. Sur l’ensemble du jeu, j’ai conçu des mécaniques d’interaction, développé la logique de gameplay et les effets, et fait de la QA et de la correction de bugs.</p>
         <p>Côté ingénierie, je me suis concentré sur le <em>ressenti</em> des choses en mouvement&nbsp;: le papier emporté par le vent, la nage de l’espadon, le balancement du crabe aux lianes et les objets qui se brisent. J’ai aussi écrit le shader des «&nbsp;murs d’air&nbsp;» du jeu.</p>
         <p>Le projet suit une règle stricte&nbsp;: la logique de chaque système est écrite en C# pur, sans aucun type du moteur, afin de pouvoir quitter Unity plus tard, et chaque modification est vérifiée par des données — sondes, logs et bots de parcours — avant les captures d’écran.</p>
         <dl class="specs">
@@ -71,12 +71,29 @@
       </div>
     </section>
 
+    <section class="shell">
+      <div class="split" style="margin-bottom:40px">
+        <div data-reveal>
+          <p class="eyebrow">Les fondations · conçues en équipe</p>
+          <h2>Rendu &amp; animation procédurale</h2>
+        </div>
+        <div class="prose" data-reveal>
+          <p>Nous avons conçu ensemble, en équipe, les fondations techniques du jeu&nbsp;: comment faire tenir le pixel art face à une caméra 3D en perspective qui se déplace, et comment animer chaque créature sans un seul squelette d’animation. Les systèmes que j’ai développés reposent sur ces fondations.</p>
+        </div>
+      </div>
+      <div class="features">
+        <article data-reveal><span class="num">01</span><h3>Pipeline de rendu sur mesure</h3><p>Le jeu a quitté URP par étapes pour son propre pipeline, construit sur un frame graph indépendant du moteur, écrit en C# pur, dont Unity n’est qu’un backend parmi d’autres. Chaque étape a été vérifiée texel par texel par rapport à des images de référence. Les variantes de shaders sont passées de 603 à 36, et une frame complète coûte environ 0,4–0,5&nbsp;ms de GPU.</p></article>
+        <article data-reveal><span class="num">02</span><h3>Du pixel art en perspective</h3><p>Chaque objet s’aligne de façon rigide sur la grille de texels basse résolution, et son décalage sous-pixel résiduel est stocké dans le G-buffer puis résolu à la résolution de l’écran, si bien que les silhouettes ne fourmillent jamais pendant les mouvements de caméra. La lumière indirecte douce provient de radiance cascades en 2,5D avec des sondes ancrées dans le monde, pour environ 0,3&nbsp;ms.</p></article>
+        <article data-reveal><span class="num">03</span><h3>Animation procédurale</h3><p>Aucun squelette d’animation nulle part&nbsp;: des colonnes vertébrales de poissons animées par des ondes progressives, des chaînes XPBD et Verlet, des méduses simulées en compute shaders, et des bancs de Boids de plus de 5&nbsp;000 poissons dessinés en un seul appel.</p></article>
+      </div>
+    </section>
+
     <section class="systems">
       <div class="shell">
         <div class="sectionHead" data-reveal>
           <div>
             <p class="eyebrow">Level design</p>
-            <h2>Trois niveaux dont j’étais responsable</h2>
+            <h2>Les niveaux que j’ai conçus</h2>
           </div>
         </div>
         <div class="gallery">

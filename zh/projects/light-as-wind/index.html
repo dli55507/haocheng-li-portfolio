@@ -35,7 +35,7 @@
     <header class="detailHero shell">
       <p class="eyebrow" data-reveal>游戏项目 · USC Games · That Game Jam · 五人团队</p>
       <h1 data-reveal>愿此身如风（Light as Wind）</h1>
-      <p class="lede" data-reveal>一款梦幻的像素风横版游戏，穿越大海，奔向遥远的天空。我在团队中担任设计与工程师：独立负责十个关卡中的三个，并搭建了游戏所依赖的多套物理、着色器与破碎系统。</p>
+      <p class="lede" data-reveal>一款梦幻的像素风横版游戏，穿越大海，奔向遥远的天空。我在团队中担任设计与工程师：完成了十个关卡中三个关卡的关卡设计，并搭建了游戏所依赖的多套物理、着色器与破碎系统。</p>
       <div class="heroActions" data-reveal>
         <a class="btn primary" href="https://huxxshadow.itch.io/light-as-wind" target="_blank" rel="noreferrer">在 itch.io 试玩 ↗</a>
         <a class="btn" href="https://lightaswind.com/" target="_blank" rel="noreferrer">官方网站 ↗</a>
@@ -59,7 +59,7 @@
         <h2>设计 · 工程师</h2>
       </div>
       <div class="prose" data-reveal>
-        <p>我从头到尾负责了第 04、06 和 10 关——包括场景、路线与机制——同时参与了全部十个关卡的设计、交互与 bug 修复。</p>
+        <p>我完成了第 04、06 和 10 关的关卡设计——包括场景、路线与机制。在整个游戏范围内，我设计交互机制，实现玩法逻辑与效果，并负责QA 与 bug 修复。</p>
         <p>工程方面，我专注于物体运动时的<em>手感</em>：被风卷起的纸张、剑鱼的游动、螃蟹的藤蔓摆荡，以及会碎裂的道具。我还为游戏中的“空气墙”编写了着色器。</p>
         <p>项目有一条严格的规则：所有系统的逻辑都用不依赖引擎类型的纯 C# 编写，以便日后脱离 Unity；每一项改动都要先用数据验证——探针、日志和路线机器人——然后才看截图。</p>
         <dl class="specs">
@@ -71,12 +71,29 @@
       </div>
     </section>
 
+    <section class="shell">
+      <div class="split" style="margin-bottom:40px">
+        <div data-reveal>
+          <p class="eyebrow">技术基础 · 团队共同搭建</p>
+          <h2>渲染与程序化动画</h2>
+        </div>
+        <div class="prose" data-reveal>
+          <p>游戏的技术基础是我们团队一起讨论、共同搭建的：如何让像素画在运动的 3D 透视镜头下依然稳定清晰，以及如何在不使用任何骨骼绑定的情况下让每一种生物动起来。我搭建的系统都建立在这套基础之上。</p>
+        </div>
+      </div>
+      <div class="features">
+        <article data-reveal><span class="num">01</span><h3>自定义渲染管线</h3><p>游戏分阶段脱离 URP，迁移到自己的渲染管线上；管线基于一套用纯 C# 编写、与引擎无关的帧图（frame graph），Unity 只是其中一个后端。每一步都与参考帧逐纹素比对验证。着色器变体从 603 个减少到 36 个，一整帧的 GPU 开销约为 0.4–0.5 ms。</p></article>
+        <article data-reveal><span class="num">02</span><h3>透视下的像素画</h3><p>每个物体都整体吸附到低分辨率的纹素网格上，剩余的亚像素偏移存入 G-buffer，再在屏幕分辨率下解算，因此镜头平滑移动时轮廓也不会抖动。柔和的反弹光来自基于世界空间固定探针的 2.5D radiance cascades（辐射级联），开销约 0.3 ms。</p></article>
+        <article data-reveal><span class="num">03</span><h3>程序化动画</h3><p>全程不使用任何骨骼绑定：由行波驱动的鱼类脊柱、XPBD 与 Verlet 链、在 compute shader 中模拟的水母，以及 5000 多条鱼组成、只需一次绘制调用的 Boids 鱼群。</p></article>
+      </div>
+    </section>
+
     <section class="systems">
       <div class="shell">
         <div class="sectionHead" data-reveal>
           <div>
             <p class="eyebrow">关卡设计</p>
-            <h2>我负责的三个关卡</h2>
+            <h2>我设计的关卡</h2>
           </div>
         </div>
         <div class="gallery">
