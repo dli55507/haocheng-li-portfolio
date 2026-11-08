@@ -203,6 +203,7 @@ section { padding: 88px 0; }
 .cardBody .context { color: var(--text-3); font: 12px var(--mono); text-transform: uppercase; letter-spacing: .06em; }
 .cardBody h3 { font-size: 22px; }
 .cardBody .summary { color: var(--text-2); }
+.cardBody .contrib { margin-bottom: -4px; font-weight: 600; font-size: 15px; color: var(--text); }
 .cardBody ul.points { margin: 0; padding-left: 18px; color: var(--text-2); font-size: 15px; }
 .cardBody ul.points li + li { margin-top: 4px; }
 .cardLinks { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: auto; padding-top: 8px; }
