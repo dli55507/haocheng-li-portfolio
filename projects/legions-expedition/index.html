@@ -1,8 +1,133 @@
 <!doctype html>
 <html lang="en">
-  <head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>Legion's Expedition — Haocheng Li</title>  <script type="module" crossorigin src="/assets/legionsExpedition-DnR7JXts.js"></script>
-  <link rel="modulepreload" crossorigin href="/assets/globals-CLlf5Bsl.js">
-  <link rel="stylesheet" crossorigin href="/assets/globals-BCigZD_c.css">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Legion’s Expedition — Haocheng Li</title>
+  <meta name="description" content="Legion's Expedition — an auto-chess-inspired survivor game built in Godot for the UW CSE senior capstone." />
+  <meta property="og:image" content="https://lihaocheng.me/og.png" />
+  <link rel="icon" href="/favicon.svg" />
+  <link rel="stylesheet" href="/styles.css" />
+  <script src="/site.js" defer></script>
 </head>
-  <body><div id="root"></div></body>
+<body>
+  <header class="nav">
+    <div class="shell">
+      <a class="wordmark" href="/" aria-label="Back to portfolio"><span class="mark">HL</span><span class="name">Haocheng Li</span></a>
+      <nav class="navLinks" aria-label="Project"><a href="/#games">← All work</a></nav>
+    </div>
+  </header>
+
+  <main>
+    <header class="detailHero shell">
+      <p class="eyebrow" data-reveal>Game project · UW CSE senior capstone</p>
+      <h1 data-reveal>Legion’s Expedition</h1>
+      <p class="lede" data-reveal>An auto-chess-inspired survivor game about building a legion, discovering squad synergies, and keeping it alive under escalating pressure.</p>
+      <div class="heroActions" data-reveal>
+        <a class="btn primary" href="https://haochl5.github.io/legions-expedition-godot/" target="_blank" rel="noreferrer">Play the live build ↗</a>
+        <a class="btn" href="#showcase">Watch the showcase ↓</a>
+      </div>
+    </header>
+
+    <section id="showcase" class="shell" style="padding-top:0">
+      <div class="frame" data-reveal>
+        <video controls playsinline preload="metadata" aria-label="Legion's Expedition gameplay showcase">
+          <source src="/legions-expedition-showcase.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </section>
+
+    <section class="shell split">
+      <div data-reveal>
+        <p class="eyebrow">The premise</p>
+        <h2>Lead the squad. Shape the run.</h2>
+      </div>
+      <div class="prose" data-reveal>
+        <p>Unlike traditional survivor games, Legion’s Expedition doesn’t cast the player as a lone fighter. You take the role of a commander leading a squad of autonomous champions.</p>
+        <p>You focus on tactical movement, dodging, and precision shooting while recruited units find and engage enemies through specialized AI behaviors and unique skills.</p>
+        <p>As each wave grows more demanding, you draft new units, discover powerful combinations, and merge three matching champions into one stronger version — turning a ragtag squad into a coordinated fighting force.</p>
+        <dl class="specs">
+          <div><dt>Built with</dt><dd>Godot / GDScript</dd></div>
+          <div><dt>Core focus</dt><dd>Squad combat / procedural systems</dd></div>
+          <div><dt>Instrumentation</dt><dd>Backend analytics APIs</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="shell split">
+      <div data-reveal>
+        <p class="eyebrow">Recruitment system</p>
+        <h2>Draft a role. Build a formation.</h2>
+        <p style="margin-top:16px;color:var(--text-2);font-size:17px">Recruit, reroll, deploy, or lock the shop. Each decision shapes the squad’s frontline, damage profile, champion synergies, and future merge options.</p>
+      </div>
+      <figure style="margin:0" data-reveal>
+        <div class="frame"><img src="/legions-expedition-recruitment.png" alt="Recruitment shop showing Ranger, Assassin, and Squire champion choices" loading="lazy" /></div>
+        <figcaption class="caption">Champion recruitment turns each break between waves into a squad-building decision.</figcaption>
+      </figure>
+    </section>
+
+    <section class="shell">
+      <div class="sectionHead" data-reveal>
+        <div>
+          <p class="eyebrow">Boss encounters</p>
+          <h2>Three bosses, distinct attack patterns</h2>
+        </div>
+      </div>
+      <div class="frame" data-reveal>
+        <video controls playsinline preload="metadata" aria-label="Legion's Expedition boss fight showcase">
+          <source src="/legions-expedition-boss-fights.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <p class="caption">Boss encounters test movement, positioning, and squad composition through individually designed attack patterns.</p>
+    </section>
+
+    <section class="systems">
+      <div class="shell">
+        <div class="sectionHead" data-reveal>
+          <div>
+            <p class="eyebrow">Systems and features</p>
+            <h2>Six pillars</h2>
+          </div>
+        </div>
+        <div class="features">
+          <article data-reveal><span class="num">01</span><h3>Squad-led survivor combat</h3><p>Inspired by Vampire Survivors and auto-chess, the game shifts the survivor formula from a lone fighter to commanding a growing squad of autonomous champions.</p></article>
+          <article data-reveal><span class="num">02</span><h3>Champions, enemies, and bosses</h3><p>More than six champion designs bring distinct powers to the squad, while more than six mob types and three bosses introduce their own attack patterns.</p></article>
+          <article data-reveal><span class="num">03</span><h3>Merge-three progression</h3><p>Three matching champions merge into one stronger version — a familiar auto-chess rule that powers the squad up for increasingly dangerous waves.</p></article>
+          <article data-reveal><span class="num">04</span><h3>Procedurally assembled maps</h3><p>Every run recombines map tiles and environment assets under layout rules, keeping each battlefield varied without sacrificing readable paths.</p></article>
+          <article data-reveal><span class="num">05</span><h3>Hidden adaptive difficulty</h3><p>A behind-the-scenes dynamic difficulty system, inspired by the Resident Evil series, adjusts pressure as the run develops.</p></article>
+          <article data-reveal><span class="num">06</span><h3>Real-time player telemetry</h3><p>Backend analytics APIs capture survival time, progression, and other play metrics in real time to support evaluation and design iteration.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="shell">
+      <div class="split" style="margin-bottom:40px">
+        <div data-reveal>
+          <p class="eyebrow">Telemetry and iteration</p>
+          <h2>Measure the run. Refine the game.</h2>
+        </div>
+        <div class="prose" data-reveal>
+          <p>Integrated analytics APIs send real-time session, progression, and survival data to Talo. The records support academic reporting and make it possible to compare how balance changes affect player behavior across iterations.</p>
+        </div>
+      </div>
+      <div class="gallery">
+        <figure data-reveal>
+          <div class="frame"><img src="/legions-expedition-talo-overview.png" alt="Talo dashboard showing player, session, and event records" loading="lazy" /></div>
+          <figcaption><span>Talo activity overview: 134 new players, 12 returning players, 178 sessions, 1,445 events, and 55 unique event submitters.</span></figcaption>
+        </figure>
+        <figure data-reveal>
+          <div class="frame"><img src="/legions-expedition-survival-curve.png" alt="Player survival curves comparing iterations three and four" loading="lazy" /></div>
+          <figcaption><span>Survival curves compare iteration 3 (n=38) with iteration 4 (n=95), turning raw telemetry into evidence for balance decisions.</span></figcaption>
+        </figure>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="shell">
+      <span>Legion’s Expedition</span>
+      <a href="/#games">← Back to all work</a>
+    </div>
+  </footer>
+</body>
 </html>

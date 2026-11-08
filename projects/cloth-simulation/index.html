@@ -1,8 +1,109 @@
 <!doctype html>
 <html lang="en">
-  <head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>Cloth Simulation — Haocheng Li</title>  <script type="module" crossorigin src="/assets/clothSimulation-BrsJ3jtC.js"></script>
-  <link rel="modulepreload" crossorigin href="/assets/globals-CLlf5Bsl.js">
-  <link rel="stylesheet" crossorigin href="/assets/globals-BCigZD_c.css">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cloth Simulation — Haocheng Li</title>
+  <meta name="description" content="A real-time mass–spring cloth solver built in Unity for UW CSE 457." />
+  <meta property="og:image" content="https://lihaocheng.me/og.png" />
+  <link rel="icon" href="/favicon.svg" />
+  <link rel="stylesheet" href="/styles.css" />
+  <script src="/site.js" defer></script>
 </head>
-  <body><div id="root"></div></body>
+<body>
+  <header class="nav">
+    <div class="shell">
+      <a class="wordmark" href="/" aria-label="Back to portfolio"><span class="mark">HL</span><span class="name">Haocheng Li</span></a>
+      <nav class="navLinks" aria-label="Project"><a href="/#games">← All work</a></nav>
+    </div>
+  </header>
+
+  <main>
+    <header class="detailHero shell">
+      <p class="eyebrow" data-reveal>Computer graphics · UW CSE 457 final artifact</p>
+      <h1 data-reveal>Cloth Simulation</h1>
+      <p class="lede" data-reveal>A real-time mass–spring cloth solver built in Unity, combining stable integration, stretch constraints, configurable pinning, collision response, and interactive wind.</p>
+      <div class="heroActions" data-reveal>
+        <a class="btn primary" href="#solver">Explore the solver ↓</a>
+      </div>
+    </header>
+
+    <section class="shell" style="padding-top:0">
+      <figure style="margin:0" data-reveal>
+        <div class="frame"><img src="/cloth-wind.gif" alt="Cloth reacting to changing wind direction and strength in Unity" /></div>
+        <figcaption class="caption">Interactive wind: sail scene with real-time direction and strength controls.</figcaption>
+      </figure>
+    </section>
+
+    <section id="solver" class="shell split">
+      <div data-reveal>
+        <p class="eyebrow">The solver</p>
+        <h2>From particles to fabric.</h2>
+      </div>
+      <div class="prose" data-reveal>
+        <p>I modeled the cloth as a grid of particles connected by three spring families. Structural springs resist stretching, shear springs stabilize diagonal deformation, and flexion springs resist bending.</p>
+        <p>Each frame accumulates spring and global forces, advances non-fixed particles with Verlet integration, resolves collisions and overextension constraints, and writes the corrected positions back to the rendered mesh.</p>
+        <p>Fixed-point rules support several pinning configurations. The loop also integrates the project’s collision and surface-aware wind utilities, including turbulent gusts and real-time direction and strength controls.</p>
+        <dl class="specs">
+          <div><dt>Built with</dt><dd>Unity / C#</dd></div>
+          <div><dt>Core model</dt><dd>Mass–spring particle system</dd></div>
+          <div><dt>Integration</dt><dd>Verlet integration</dd></div>
+          <div><dt>Response</dt><dd>Constraints / collisions / wind</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="systems">
+      <div class="shell">
+        <div class="sectionHead" data-reveal>
+          <div>
+            <p class="eyebrow">Implementation</p>
+            <h2>Five systems</h2>
+          </div>
+        </div>
+        <div class="features">
+          <article data-reveal><span class="num">01</span><h3>Mass–spring topology</h3><p>Structural springs for stretch resistance, shear springs for diagonal stability, and flexion springs for bending resistance across the particle grid.</p></article>
+          <article data-reveal><span class="num">02</span><h3>Hooke’s-law forces</h3><p>Spring forces pull particles together when stretched and push them apart when compressed, using rest length, stiffness, and spring direction.</p></article>
+          <article data-reveal><span class="num">03</span><h3>Stable motion and constraints</h3><p>Verlet integration plus an overextension constraint that corrects springs before unrealistic stretching destabilizes the cloth.</p></article>
+          <article data-reveal><span class="num">04</span><h3>Three-phase physics loop</h3><p>Per-frame pipeline: force accumulation, integration and collision handling, constraint resolution, then mesh-vertex updates.</p></article>
+          <article data-reveal><span class="num">05</span><h3>Configurable test scenes</h3><p>Fixed-point detection for multiple pinning patterns, with the provided collision and wind helpers integrated into the simulation loop.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="shell">
+      <div class="sectionHead" data-reveal>
+        <div>
+          <p class="eyebrow">Simulation scenes</p>
+          <h2>One solver. Four stress tests.</h2>
+        </div>
+      </div>
+      <div class="gallery">
+        <figure data-reveal>
+          <div class="frame"><img src="/cloth-four-corners.gif" alt="Cloth sagging under gravity with all four corners fixed" loading="lazy" /></div>
+          <figcaption><strong>Four corners fixed</strong><span>Gravity pulls the center into a stable hammock shape while the spring network limits stretch.</span></figcaption>
+        </figure>
+        <figure data-reveal>
+          <div class="frame"><img src="/cloth-three-corners.gif" alt="Asymmetric cloth simulation with three corners fixed" loading="lazy" /></div>
+          <figcaption><strong>Three corners fixed</strong><span>Releasing one corner creates asymmetric tension and a free edge, testing how constraints propagate.</span></figcaption>
+        </figure>
+        <figure data-reveal>
+          <div class="frame"><img src="/cloth-two-corners.gif" alt="Curtain-like cloth hanging from two fixed corners" loading="lazy" /></div>
+          <figcaption><strong>Two corners fixed</strong><span>Pinning the upper corners turns the cloth into a curtain that hangs, folds, and swings.</span></figcaption>
+        </figure>
+        <figure data-reveal>
+          <div class="frame"><img src="/cloth-freefall-collision.gif" alt="Cloth falling and draping over a model through collision response" loading="lazy" /></div>
+          <figcaption><strong>Freefall and collision</strong><span>The free cloth falls onto the model, resolves contact, and drapes over it without tunneling through.</span></figcaption>
+        </figure>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="shell">
+      <span>Cloth Simulation</span>
+      <a href="/#games">← Back to all work</a>
+    </div>
+  </footer>
+</body>
 </html>
