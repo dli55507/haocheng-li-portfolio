@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Light as Wind — Haocheng Li</title>
+  <meta name="description" content="Light as Wind — une aventure océanique en pixel art créée par une équipe de cinq à USC Games. Les niveaux, la physique, les shaders et la destruction que j’ai réalisés." />
+  <meta property="og:title" content="Light as Wind — Haocheng Li" />
+  <meta property="og:image" content="https://lihaocheng.me/media/light-as-wind/poster.jpg" />
+  <link rel="icon" href="../../../favicon.svg" />
+  <link rel="stylesheet" href="../../../styles.css" />
+  <script src="../../../site.js" defer></script>
+</head>
+<body>
+  <header class="nav">
+    <div class="shell">
+      <a class="wordmark" href="../../index.html" aria-label="Retour au portfolio"><span class="mark">HL</span><span class="name">Haocheng Li</span></a>
+      <div class="navRight">
+        <nav class="navLinks" aria-label="Projet"><a href="../../index.html#games">← Tous les projets</a></nav>
+        <details class="lang">
+          <summary aria-label="Langue">FR</summary>
+          <ul>
+            <li><a href="../../../projects/light-as-wind/index.html" hreflang="en" lang="en">English</a></li>
+            <li><a href="../../../zh/projects/light-as-wind/index.html" hreflang="zh" lang="zh">中文</a></li>
+            <li><a href="../../../ja/projects/light-as-wind/index.html" hreflang="ja" lang="ja">日本語</a></li>
+            <li><a href="../../../ko/projects/light-as-wind/index.html" hreflang="ko" lang="ko">한국어</a></li>
+            <li><a href="index.html" hreflang="fr" lang="fr" aria-current="true">Français</a></li>
+          </ul>
+        </details>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <header class="detailHero shell">
+      <p class="eyebrow" data-reveal>Projet de jeu · USC Games · That Game Jam · Équipe de 5</p>
+      <h1 data-reveal>Light as Wind</h1>
+      <p class="lede" data-reveal>Un jeu de plateforme à défilement horizontal en pixel art, onirique, qui traverse l’océan vers un ciel lointain. J’étais designer et ingénieur dans l’équipe&nbsp;: j’ai pris en charge trois des dix niveaux et développé plusieurs des systèmes de physique, de shaders et de destruction sur lesquels repose le jeu.</p>
+      <div class="heroActions" data-reveal>
+        <a class="btn primary" href="https://huxxshadow.itch.io/light-as-wind" target="_blank" rel="noreferrer">Jouer sur itch.io ↗</a>
+        <a class="btn" href="https://lightaswind.com/" target="_blank" rel="noreferrer">Site officiel ↗</a>
+      </div>
+    </header>
+
+    <section class="shell" style="padding-top:0">
+      <figure style="margin:0" data-reveal>
+        <div class="frame">
+          <video data-autoplay muted loop playsinline preload="metadata" poster="../../../media/light-as-wind/poster.jpg" aria-label="Gameplay de Light as Wind : l’étoile de mer se cache d’une baudroie géante">
+            <source src="../../../media/light-as-wind/angler.mp4" type="video/mp4" />
+          </video>
+        </div>
+        <figcaption class="caption">Gameplay du niveau 03&nbsp;: se cacher de la baudroie. Toutes les créatures du jeu sont animées de façon procédurale, sans aucun squelette d’animation.</figcaption>
+      </figure>
+    </section>
+
+    <section class="shell split">
+      <div data-reveal>
+        <p class="eyebrow">Mon rôle</p>
+        <h2>Designer · Ingénieur</h2>
+      </div>
+      <div class="prose" data-reveal>
+        <p>J’ai pris en charge les niveaux 04, 06 et 10 de bout en bout — scène, parcours et mécaniques — et j’ai travaillé sur le design, les interactions et la correction de bugs sur l’ensemble des dix niveaux.</p>
+        <p>Côté ingénierie, je me suis concentré sur le <em>ressenti</em> des choses en mouvement&nbsp;: le papier emporté par le vent, la nage de l’espadon, le balancement du crabe aux lianes et les objets qui se brisent. J’ai aussi écrit le shader des «&nbsp;murs d’air&nbsp;» du jeu.</p>
+        <p>Le projet suit une règle stricte&nbsp;: la logique de chaque système est écrite en C# pur, sans aucun type du moteur, afin de pouvoir quitter Unity plus tard, et chaque modification est vérifiée par des données — sondes, logs et bots de parcours — avant les captures d’écran.</p>
+        <dl class="specs">
+          <div><dt>Moteur</dt><dd>Unity 6 / C# / HLSL</dd></div>
+          <div><dt>Équipe</dt><dd>5 étudiants, USC Games</dd></div>
+          <div><dt>Plateforme</dt><dd>Windows (itch.io)</dd></div>
+          <div><dt>Statut</dt><dd>Partie I disponible</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="systems">
+      <div class="shell">
+        <div class="sectionHead" data-reveal>
+          <div>
+            <p class="eyebrow">Level design</p>
+            <h2>Trois niveaux dont j’étais responsable</h2>
+          </div>
+        </div>
+        <div class="gallery">
+          <figure data-reveal>
+            <div class="frame"><video data-autoplay muted loop playsinline preload="metadata" aria-label="Niveau 04 : dalles qui respirent au-dessus de sources chaudes"><source src="../../../media/light-as-wind/level04.mp4" type="video/mp4" /></video></div>
+            <figcaption><strong>Niveau 04 · Sources chaudes</strong><span>Un niveau de cheminées hydrothermales&nbsp;: les courants des cheminées soulèvent le héros, des parcours lestés, et des dalles de pierre qui «&nbsp;respirent&nbsp;» de haut en bas comme plateformes.</span></figcaption>
+          </figure>
+          <figure data-reveal>
+            <div class="frame"><video data-autoplay muted loop playsinline preload="metadata" aria-label="Niveau 06 : l’espadon remonte une grotte de corail"><source src="../../../media/light-as-wind/level06.mp4" type="video/mp4" /></video></div>
+            <figcaption><strong>Niveau 06 · La grotte ascendante</strong><span>Une grotte ascendante pour l’espadon, avec des courants physiques, des portes en coquilles Saint-Jacques, d’abruptes vallées de corail et un tunnel qui s’effondre derrière vous.</span></figcaption>
+          </figure>
+          <figure data-reveal>
+            <div class="frame"><img src="../../../media/light-as-wind/level10-peel.jpg" alt="Niveau 10 : des affiches se décollent d’un mur sur le rivage au passage du crabe" loading="lazy" /></div>
+            <figcaption><strong>Niveau 10 · Le rivage (finale)</strong><span>Un rivage à l’aube, parsemé de morceaux de la chambre de l’héroïne. Le crabe tient bon face aux vagues et aux rafales tandis que ses affiches s’envolent.</span></figcaption>
+          </figure>
+          <figure data-reveal>
+            <div class="frame"><img src="../../../media/light-as-wind/level10-posters.jpg" alt="Niveau 10 : des affiches volent au-dessus du crabe dans le vent" loading="lazy" /></div>
+            <figcaption><strong>Niveau 10 · Rafales</strong><span>Des rafales scriptées avec des traînées de vent façon coups de pinceau et des objets portés par l’air, pour que le vent soit bien lisible et reste doux à affronter.</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="shell">
+      <div class="sectionHead" data-reveal>
+        <div>
+          <p class="eyebrow">Systèmes</p>
+          <h2>Physique, shaders &amp; destruction</h2>
+        </div>
+        <p class="count">05 points forts</p>
+      </div>
+
+      <div class="split" style="margin-bottom:72px">
+        <div data-reveal>
+          <p class="eyebrow">01 · Simulation</p>
+          <h3 style="font-size:26px;margin-top:8px">Du papier emporté par le vent</h3>
+          <div class="prose" style="margin-top:16px">
+            <p>Chaque feuille se soulève en pivotant autour de son <strong>bord sous le vent</strong>, qui sert de charnière, se décolle jusqu’à 34°, puis se détache. En l’air, sa vitesse tend vers un vent cible par une poursuite exponentielle, et un balancement de feuille morte (±0,3&nbsp;m, période de 2,1&nbsp;s) couple l’inclinaison à l’oscillation pour que la feuille s’incline dans chaque virage.</p>
+            <p>Avant l’arrivée du vent, les coins frémissent sur un ressort sous-amorti. Une contrainte de mur maintient les affiches devant le mur et les fait glisser le long de sa surface, de sorte qu’elles ne le traversent jamais.</p>
+          </div>
+          <dl class="specs">
+            <div><dt>Par rafale</dt><dd>15–17 feuilles, toutes hors écran en 0,22–2,33&nbsp;s</dd></div>
+            <div><dt>Traversée du mur</dt><dd>0,7–2,6&nbsp;m → 0</dd></div>
+          </dl>
+        </div>
+        <figure style="margin:0" data-reveal>
+          <div class="frame"><img src="../../../media/light-as-wind/level10-still.webp" alt="Affiches sur le mur du rivage avant le vent" loading="lazy" /></div>
+          <figcaption class="caption">Le modèle est écrit en C# pur (System.Numerics, sans type du moteur)&nbsp;; Unity ne fait que l’afficher.</figcaption>
+        </figure>
+      </div>
+
+      <div class="split" style="margin-bottom:72px">
+        <div data-reveal>
+          <p class="eyebrow">02 · Shader · Bruit de Worley</p>
+          <h3 style="font-size:26px;margin-top:8px">Le mur d’air&nbsp;: la peau d’une mer de rêve</h3>
+          <div class="prose" style="margin-top:16px">
+            <p>Les murs invisibles devaient sembler faire partie du rêve, et non passer pour un bug. Le mur affiche une <strong>toile de Voronoi / Worley</strong> qui dérive&nbsp;: les lignes sont tracées selon la distance réelle aux bords des cellules, si bien qu’elles restent larges d’un pixel et continues sous n’importe quel angle, chaque bord prenant l’une des couleurs du plancton, avec quelques paillettes dorées scintillantes.</p>
+            <p>Un impact envoie une paire d’anneaux qui se propagent en écartant la toile, et des bulles s’échappent du point d’impact. Le rideau n’apparaît qu’à l’approche (1,8&nbsp;m, pleinement visible à 0,95&nbsp;m). La luminosité utilise des paliers nets sans tramage, en HLSL portable s’appuyant sur les headers propres au projet.</p>
+          </div>
+        </div>
+        <figure style="margin:0" data-reveal>
+          <div class="frame"><video data-autoplay muted loop playsinline preload="metadata" poster="../../../media/light-as-wind/airwall.jpg" aria-label="L’espadon heurte le mur d’air et des anneaux se propagent sur la toile de Worley"><source src="../../../media/light-as-wind/airwall.mp4" type="video/mp4" /></video></div>
+        </figure>
+      </div>
+
+      <div class="split" style="margin-bottom:72px">
+        <div data-reveal>
+          <p class="eyebrow">03 · Game feel</p>
+          <h3 style="font-size:26px;margin-top:8px">La nage de l’espadon</h3>
+          <div class="prose" style="margin-top:16px">
+            <p>L’espadon nage avec une onde vertébrale de type thon, un recul pondéré par la masse qui fait osciller la tête à l’opposé de la queue comme chez un vrai poisson, et une fréquence de battement de queue fixée par le nombre de Strouhal.</p>
+            <p>J’ai travaillé sur sa maniabilité&nbsp;: aucun freinage avant de toucher réellement un mur (distance mesurée depuis la pointe du rostre le long de sa trajectoire), une glisse le long des plafonds et des pentes herbeuses sans perte de vitesse, un plongeon entre les sauts et des virages haut/bas plus vifs.</p>
+          </div>
+        </div>
+        <figure style="margin:0" data-reveal>
+          <div class="frame"><video data-autoplay muted loop playsinline preload="metadata" poster="../../../media/light-as-wind/swordfish-still.webp" aria-label="L’espadon bondit hors de la mer"><source src="../../../media/light-as-wind/swordfish.mp4" type="video/mp4" /></video></div>
+        </figure>
+      </div>
+
+      <div class="split" style="margin-bottom:72px">
+        <div data-reveal>
+          <p class="eyebrow">04 · Simulation</p>
+          <h3 style="font-size:26px;margin-top:8px">Le crabe qui se balance aux lianes</h3>
+          <div class="prose" style="margin-top:16px">
+            <p>Le crabe est un pendule&nbsp;; la liane ne fait que suivre sa pince. La prise est évaluée dans le plan de l’image, car la distance 3D pure ratait souvent dans un jeu en 2,5D. Le joueur ne peut donner de l’élan qu’en phase avec le balancement, et un plafond d’énergie (72° max) empêche les longues lianes de projeter le crabe hors du cadre.</p>
+            <p>Chaque liane est une corde de Verlet à 18 nœuds, avec 8 passes de contraintes, une traînée dans l’eau et un lent balancement&nbsp;; les nœuds situés sous la pince sont repoussés hors de la carapace du crabe pour qu’elle ne la traverse jamais.</p>
+          </div>
+          <dl class="specs">
+            <div><dt>Frame moyenne, niveaux 7/8/9</dt><dd>6,4/7,7/8,5 → 1,7/2,6/2,7&nbsp;ms</dd></div>
+            <div><dt>Frames au-delà de 16,7&nbsp;ms</dt><dd>89/165/166 → 4/0/0</dd></div>
+          </dl>
+        </div>
+        <figure style="margin:0" data-reveal>
+          <div class="frame"><video data-autoplay muted loop playsinline preload="metadata" aria-label="Le crabe se balance d’une liane à l’autre"><source src="../../../media/light-as-wind/vines.mp4" type="video/mp4" /></video></div>
+        </figure>
+      </div>
+
+      <div class="split">
+        <div data-reveal>
+          <p class="eyebrow">05 · Destruction</p>
+          <h3 style="font-size:26px;margin-top:8px">Découper le niveau en morceaux</h3>
+        </div>
+        <div class="prose" data-reveal>
+          <p>Aucun élément du jeu n’est un mesh importé&nbsp;: détruire, c’est donc découper de la géométrie générée. Pour le tunnel qui s’effondre au niveau 06, la voûte de la grotte se brise d’elle-même&nbsp;: les sommets sont soudés et regroupés en rochers fermés grâce à un <strong>union-find</strong>, les rochers allongés sont découpés par des plans aléatoires (<strong>Sutherland–Hodgman</strong>, avec interpolation de tous les attributs), et chaque coupe est refermée par un éventail de triangles pour que chaque fragment reste un solide fermé.</p>
+          <p>La découpe s’exécute dans une coroutine avec un budget de 4&nbsp;ms par frame, et démarre alors que le joueur est encore à 60&nbsp;m&nbsp;: 610 rochers deviennent 169 fragments en 140–220 frames. Les objets plus petits se brisent en morceaux prédécoupés dont les jointures sont partagées entre voisins, et les éclats se passent entièrement du moteur physique — environ 0,013&nbsp;ms par frame.</p>
+          <dl class="specs">
+            <div><dt>Effondrement du tunnel</dt><dd>610 rochers → 169 fragments</dd></div>
+            <div><dt>Pire frame lors d’un bris d’objet</dt><dd>14,6 → 3,3&nbsp;ms</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="shell">
+      <span>Light as Wind</span>
+      <a href="../../index.html#games">← Retour à tous les projets</a>
+    </div>
+  </footer>
+</body>
+</html>

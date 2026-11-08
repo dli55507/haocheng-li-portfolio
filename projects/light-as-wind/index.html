@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Light as Wind — Haocheng Li</title>
+  <meta name="description" content="Light as Wind — a pixel-art ocean adventure made by a team of five at USC Games. Levels, physics, shaders, and destruction I built." />
+  <meta property="og:title" content="Light as Wind — Haocheng Li" />
+  <meta property="og:image" content="https://lihaocheng.me/media/light-as-wind/poster.jpg" />
+  <link rel="icon" href="../../favicon.svg" />
+  <link rel="stylesheet" href="../../styles.css" />
+  <script src="../../site.js" defer></script>
+</head>
+<body>
+  <header class="nav">
+    <div class="shell">
+      <a class="wordmark" href="../../index.html" aria-label="Back to portfolio"><span class="mark">HL</span><span class="name">Haocheng Li</span></a>
+      <div class="navRight">
+        <nav class="navLinks" aria-label="Project"><a href="../../index.html#games">← All work</a></nav>
+        <details class="lang">
+          <summary aria-label="Language">EN</summary>
+          <ul>
+            <li><a href="index.html" hreflang="en" lang="en" aria-current="true">English</a></li>
+            <li><a href="../../zh/projects/light-as-wind/index.html" hreflang="zh" lang="zh">中文</a></li>
+            <li><a href="../../ja/projects/light-as-wind/index.html" hreflang="ja" lang="ja">日本語</a></li>
+            <li><a href="../../ko/projects/light-as-wind/index.html" hreflang="ko" lang="ko">한국어</a></li>
+            <li><a href="../../fr/projects/light-as-wind/index.html" hreflang="fr" lang="fr">Français</a></li>
+          </ul>
+        </details>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <header class="detailHero shell">
+      <p class="eyebrow" data-reveal>Game project · USC Games · That Game Jam · Team of 5</p>
+      <h1 data-reveal>Light as Wind</h1>
+      <p class="lede" data-reveal>A dreamy pixel-art side-scroller across the ocean, toward a faraway sky. I was a designer and engineer on the team: I owned three of the ten levels and built several of the physics, shader, and destruction systems the game runs on.</p>
+      <div class="heroActions" data-reveal>
+        <a class="btn primary" href="https://huxxshadow.itch.io/light-as-wind" target="_blank" rel="noreferrer">Play on itch.io ↗</a>
+        <a class="btn" href="https://lightaswind.com/" target="_blank" rel="noreferrer">Official site ↗</a>
+      </div>
+    </header>
+
+    <section class="shell" style="padding-top:0">
+      <figure style="margin:0" data-reveal>
+        <div class="frame">
+          <video data-autoplay muted loop playsinline preload="metadata" poster="../../media/light-as-wind/poster.jpg" aria-label="Light as Wind gameplay: the starfish hides from a giant anglerfish">
+            <source src="../../media/light-as-wind/angler.mp4" type="video/mp4" />
+          </video>
+        </div>
+        <figcaption class="caption">Gameplay from Level 03: hiding from the anglerfish. Every creature in the game is animated procedurally, with no skeletal rigs.</figcaption>
+      </figure>
+    </section>
+
+    <section class="shell split">
+      <div data-reveal>
+        <p class="eyebrow">My role</p>
+        <h2>Designer · Engineer</h2>
+      </div>
+      <div class="prose" data-reveal>
+        <p>I owned Levels 04, 06, and 10 end to end — scene, route, and mechanics — and worked on design, interactions, and bug fixes across all ten levels.</p>
+        <p>On the engineering side I focused on how things <em>feel</em> when they move: paper caught by the wind, the swordfish’s swimming, the crab’s vine swing, and props that break apart. I also wrote the shader for the game’s “air walls”.</p>
+        <p>The project has a strict rule: every system’s logic lives in plain C# with no engine types, so it can move off Unity later, and every change is checked with data — probes, logs, and route bots — before screenshots.</p>
+        <dl class="specs">
+          <div><dt>Engine</dt><dd>Unity 6 / C# / HLSL</dd></div>
+          <div><dt>Team</dt><dd>5 students, USC Games</dd></div>
+          <div><dt>Platform</dt><dd>Windows (itch.io)</dd></div>
+          <div><dt>Status</dt><dd>Part I out now</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="systems">
+      <div class="shell">
+        <div class="sectionHead" data-reveal>
+          <div>
+            <p class="eyebrow">Level design</p>
+            <h2>Three levels I owned</h2>
+          </div>
+        </div>
+        <div class="gallery">
+          <figure data-reveal>
+            <div class="frame"><video data-autoplay muted loop playsinline preload="metadata" aria-label="Level 04: breathing slabs over hot vents"><source src="../../media/light-as-wind/level04.mp4" type="video/mp4" /></video></div>
+            <figcaption><strong>Level 04 · Hot springs</strong><span>A hydrothermal-vent stage: vent currents lift the hero, weighted routes, and stone slabs that “breathe” up and down as platforms.</span></figcaption>
+          </figure>
+          <figure data-reveal>
+            <div class="frame"><video data-autoplay muted loop playsinline preload="metadata" aria-label="Level 06: the swordfish swims up a coral cave"><source src="../../media/light-as-wind/level06.mp4" type="video/mp4" /></video></div>
+            <figcaption><strong>Level 06 · The rising cave</strong><span>An ascending swordfish cave with physical currents, scallop-shell gates, steep coral valleys, and a tunnel that collapses behind you.</span></figcaption>
+          </figure>
+          <figure data-reveal>
+            <div class="frame"><img src="../../media/light-as-wind/level10-peel.jpg" alt="Level 10: posters peeling off a wall on the shore as the crab passes" loading="lazy" /></div>
+            <figcaption><strong>Level 10 · The shore (finale)</strong><span>A dawn shoreline scattered with pieces of the heroine’s room. The crab holds on through waves and wind gusts while her posters blow away.</span></figcaption>
+          </figure>
+          <figure data-reveal>
+            <div class="frame"><img src="../../media/light-as-wind/level10-posters.jpg" alt="Level 10: posters flying over the crab in the wind" loading="lazy" /></div>
+            <figcaption><strong>Level 10 · Gusts</strong><span>Scripted gusts with brush-stroke wind streaks and things carried in the air, so the wind reads clearly and feels soft to hold against.</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="shell">
+      <div class="sectionHead" data-reveal>
+        <div>
+          <p class="eyebrow">Systems</p>
+          <h2>Physics, shaders &amp; destruction</h2>
+        </div>
+        <p class="count">05 highlights</p>
+      </div>
+
+      <div class="split" style="margin-bottom:72px">
+        <div data-reveal>
+          <p class="eyebrow">01 · Simulation</p>
+          <h3 style="font-size:26px;margin-top:8px">Paper blown by the wind</h3>
+          <div class="prose" style="margin-top:16px">
+            <p>Each sheet lifts by rotating about its <strong>downwind edge</strong> as a hinge, peels up to 34°, then lets go. In the air its velocity eases toward a target wind with an exponential chase, and a falling-leaf sway (±0.3 m, 2.1 s period) couples tilt to swing so the sheet leans into each turn.</p>
+            <p>Before the wind arrives, corners flutter on an underdamped spring. A wall constraint holds posters in front of the wall and slides them off its face, so they never pass through it.</p>
+          </div>
+          <dl class="specs">
+            <div><dt>Per gust</dt><dd>15–17 sheets, all off-screen in 0.22–2.33 s</dd></div>
+            <div><dt>Wall clipping</dt><dd>0.7–2.6 m → 0</dd></div>
+          </dl>
+        </div>
+        <figure style="margin:0" data-reveal>
+          <div class="frame"><img src="../../media/light-as-wind/level10-still.webp" alt="Posters on the shore wall before the wind" loading="lazy" /></div>
+          <figcaption class="caption">The model is plain C# (System.Numerics, no engine types); Unity only draws it.</figcaption>
+        </figure>
+      </div>
+
+      <div class="split" style="margin-bottom:72px">
+        <div data-reveal>
+          <p class="eyebrow">02 · Shader · Worley noise</p>
+          <h3 style="font-size:26px;margin-top:8px">The air wall: a dream sea’s skin</h3>
+          <div class="prose" style="margin-top:16px">
+            <p>Invisible walls needed to read as part of the dream, not as a bug. The wall shows a drifting <strong>Voronoi / Worley web</strong>: lines are drawn by the true distance to the cell borders, so they stay one pixel wide and unbroken at any angle, each border in one of the plankton colours, with a few twinkling gold motes.</p>
+            <p>A hit sends a pair of rings running out that push the web aside, and bubbles drift off from the impact. The curtain appears only when you come close (1.8 m, full at 0.95 m). Brightness uses clean steps with no dithering, in portable HLSL on the project’s own headers.</p>
+          </div>
+        </div>
+        <figure style="margin:0" data-reveal>
+          <div class="frame"><video data-autoplay muted loop playsinline preload="metadata" poster="../../media/light-as-wind/airwall.jpg" aria-label="The swordfish bumps the air wall and rings spread across the Worley web"><source src="../../media/light-as-wind/airwall.mp4" type="video/mp4" /></video></div>
+        </figure>
+      </div>
+
+      <div class="split" style="margin-bottom:72px">
+        <div data-reveal>
+          <p class="eyebrow">03 · Game feel</p>
+          <h3 style="font-size:26px;margin-top:8px">The swordfish’s swim</h3>
+          <div class="prose" style="margin-top:16px">
+            <p>The swordfish swims with a tuna-style spine wave, a mass-weighted recoil that makes the head swing against the tail like a real fish, and a tail-beat frequency set by the Strouhal number.</p>
+            <p>I worked on how it handles: no braking before it actually touches a wall (distance measured from the snout tip along its path), sliding along roofs and grassy slopes without bleeding speed, a dive between leaps, and quicker up/down turns.</p>
+          </div>
+        </div>
+        <figure style="margin:0" data-reveal>
+          <div class="frame"><video data-autoplay muted loop playsinline preload="metadata" poster="../../media/light-as-wind/swordfish-still.webp" aria-label="The swordfish leaping out of the sea"><source src="../../media/light-as-wind/swordfish.mp4" type="video/mp4" /></video></div>
+        </figure>
+      </div>
+
+      <div class="split" style="margin-bottom:72px">
+        <div data-reveal>
+          <p class="eyebrow">04 · Simulation</p>
+          <h3 style="font-size:26px;margin-top:8px">The crab’s vine swing</h3>
+          <div class="prose" style="margin-top:16px">
+            <p>The crab is a pendulum; the vine just follows its claw. Grabbing is measured in the picture plane, because pure 3D distance kept missing in a 2.5D game. The player can pump only in phase with the swing, and an energy cap (72° max) keeps long vines from flinging the crab out of frame.</p>
+            <p>Each vine is an 18-node Verlet rope with 8 constraint passes, water drag, and slow sway; the nodes below the claw are pushed out of the crab’s shell so it never clips.</p>
+          </div>
+          <dl class="specs">
+            <div><dt>Avg frame, Levels 7/8/9</dt><dd>6.4/7.7/8.5 → 1.7/2.6/2.7 ms</dd></div>
+            <div><dt>Frames over 16.7 ms</dt><dd>89/165/166 → 4/0/0</dd></div>
+          </dl>
+        </div>
+        <figure style="margin:0" data-reveal>
+          <div class="frame"><video data-autoplay muted loop playsinline preload="metadata" aria-label="The crab swinging between vines"><source src="../../media/light-as-wind/vines.mp4" type="video/mp4" /></video></div>
+        </figure>
+      </div>
+
+      <div class="split">
+        <div data-reveal>
+          <p class="eyebrow">05 · Destruction</p>
+          <h3 style="font-size:26px;margin-top:8px">Cutting the level into pieces</h3>
+        </div>
+        <div class="prose" data-reveal>
+          <p>Nothing in the game is an imported mesh, so destruction means cutting generated geometry. For Level 06’s collapsing tunnel, the cave roof breaks itself: vertices are welded and grouped into closed rocks with <strong>union-find</strong>, long rocks are clipped against random planes (<strong>Sutherland–Hodgman</strong>, all attributes interpolated), and each cut is capped with a fan so every fragment stays a closed solid.</p>
+          <p>The cut runs as a coroutine with a 4 ms per-frame budget, starting while the player is still 60 m away: 610 rocks become 169 fragments over 140–220 frames. Smaller props break with pre-cut pieces whose seams are shared between neighbours, and the shards skip the physics engine entirely — about 0.013 ms per frame.</p>
+          <dl class="specs">
+            <div><dt>Tunnel collapse</dt><dd>610 rocks → 169 fragments</dd></div>
+            <div><dt>Prop smash worst frame</dt><dd>14.6 → 3.3 ms</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="shell">
+      <span>Light as Wind</span>
+      <a href="../../index.html#games">← Back to all work</a>
+    </div>
+  </footer>
+</body>
+</html>

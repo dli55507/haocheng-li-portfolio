@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>この身、風のごとく — Haocheng Li</title>
+  <meta name="description" content="この身、風のごとく — USC Games の 5 人チームで制作した、海を旅するピクセルアートのアドベンチャー。私が手がけたレベル、物理、シェーダー、破壊表現を紹介します。" />
+  <meta property="og:title" content="この身、風のごとく — Haocheng Li" />
+  <meta property="og:image" content="https://lihaocheng.me/media/light-as-wind/poster.jpg" />
+  <link rel="icon" href="../../../favicon.svg" />
+  <link rel="stylesheet" href="../../../styles.css" />
+  <script src="../../../site.js" defer></script>
+</head>
+<body>
+  <header class="nav">
+    <div class="shell">
+      <a class="wordmark" href="../../index.html" aria-label="ポートフォリオに戻る"><span class="mark">HL</span><span class="name">Haocheng Li</span></a>
+      <div class="navRight">
+        <nav class="navLinks" aria-label="プロジェクト"><a href="../../index.html#games">← すべての作品</a></nav>
+        <details class="lang">
+          <summary aria-label="言語">日本語</summary>
+          <ul>
+            <li><a href="../../../projects/light-as-wind/index.html" hreflang="en" lang="en">English</a></li>
+            <li><a href="../../../zh/projects/light-as-wind/index.html" hreflang="zh" lang="zh">中文</a></li>
+            <li><a href="index.html" hreflang="ja" lang="ja" aria-current="true">日本語</a></li>
+            <li><a href="../../../ko/projects/light-as-wind/index.html" hreflang="ko" lang="ko">한국어</a></li>
+            <li><a href="../../../fr/projects/light-as-wind/index.html" hreflang="fr" lang="fr">Français</a></li>
+          </ul>
+        </details>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <header class="detailHero shell">
+      <p class="eyebrow" data-reveal>ゲームプロジェクト · USC Games · That Game Jam · 5 人チーム</p>
+      <h1 data-reveal>この身、風のごとく（Light as Wind）</h1>
+      <p class="lede" data-reveal>海を越え、遠い空を目指す、夢のようなピクセルアートの横スクロールゲームです。私はチームのデザイナー兼エンジニアとして、全 10 レベルのうち 3 つを担当し、ゲームを支える物理・シェーダー・破壊表現のシステムをいくつか構築しました。</p>
+      <div class="heroActions" data-reveal>
+        <a class="btn primary" href="https://huxxshadow.itch.io/light-as-wind" target="_blank" rel="noreferrer">itch.io でプレイ ↗</a>
+        <a class="btn" href="https://lightaswind.com/" target="_blank" rel="noreferrer">公式サイト ↗</a>
+      </div>
+    </header>
+
+    <section class="shell" style="padding-top:0">
+      <figure style="margin:0" data-reveal>
+        <div class="frame">
+          <video data-autoplay muted loop playsinline preload="metadata" poster="../../../media/light-as-wind/poster.jpg" aria-label="「この身、風のごとく」のゲームプレイ：巨大なチョウチンアンコウから身を隠すヒトデ">
+            <source src="../../../media/light-as-wind/angler.mp4" type="video/mp4" />
+          </video>
+        </div>
+        <figcaption class="caption">Level 03 のゲームプレイ：チョウチンアンコウから身を隠す場面。ゲーム内の生き物はすべて、スケルタルリグを使わずプロシージャルにアニメーションしています。</figcaption>
+      </figure>
+    </section>
+
+    <section class="shell split">
+      <div data-reveal>
+        <p class="eyebrow">担当</p>
+        <h2>デザイナー · エンジニア</h2>
+      </div>
+      <div class="prose" data-reveal>
+        <p>Level 04、06、10 の 3 レベルについて、シーン、ルート、メカニクスまで一貫して担当しました。さらに全 10 レベルにわたって、デザイン、インタラクション、バグ修正にも携わりました。</p>
+        <p>エンジニアリング面では、動くものの<em>手触り</em>に注力しました。風にさらわれる紙、メカジキの泳ぎ、カニのツタ渡り、そして壊れて砕けるプロップなどです。また、ゲーム内の「空気の壁」のシェーダーも書きました。</p>
+        <p>このプロジェクトには厳格なルールがあります。後から Unity 以外へ移行できるよう、各システムのロジックはエンジンの型を使わない純粋な C# で書くこと。そして、すべての変更はスクリーンショットより先に、プローブ、ログ、ルート検証ボットといったデータで確認することです。</p>
+        <dl class="specs">
+          <div><dt>エンジン</dt><dd>Unity 6 / C# / HLSL</dd></div>
+          <div><dt>チーム</dt><dd>学生 5 人、USC Games</dd></div>
+          <div><dt>プラットフォーム</dt><dd>Windows（itch.io）</dd></div>
+          <div><dt>ステータス</dt><dd>第 1 部 配信中</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="systems">
+      <div class="shell">
+        <div class="sectionHead" data-reveal>
+          <div>
+            <p class="eyebrow">レベルデザイン</p>
+            <h2>担当した 3 つのレベル</h2>
+          </div>
+        </div>
+        <div class="gallery">
+          <figure data-reveal>
+            <div class="frame"><video data-autoplay muted loop playsinline preload="metadata" aria-label="Level 04：熱水噴出孔の上で呼吸するように動く石板"><source src="../../../media/light-as-wind/level04.mp4" type="video/mp4" /></video></div>
+            <figcaption><strong>Level 04 · 温泉</strong><span>熱水噴出孔のステージ。噴出孔の流れが主人公を押し上げ、重みのあるルートが続き、石板が「呼吸」するように上下して足場になります。</span></figcaption>
+          </figure>
+          <figure data-reveal>
+            <div class="frame"><video data-autoplay muted loop playsinline preload="metadata" aria-label="Level 06：サンゴの洞窟を泳ぎ上るメカジキ"><source src="../../../media/light-as-wind/level06.mp4" type="video/mp4" /></video></div>
+            <figcaption><strong>Level 06 · 上昇する洞窟</strong><span>メカジキで上っていく洞窟。物理的な水流、ホタテ貝のゲート、険しいサンゴの谷、そして背後で崩れ落ちるトンネルがあります。</span></figcaption>
+          </figure>
+          <figure data-reveal>
+            <div class="frame"><img src="../../../media/light-as-wind/level10-peel.jpg" alt="Level 10：カニが通り過ぎると、浜辺の壁からポスターがはがれていく" loading="lazy" /></div>
+            <figcaption><strong>Level 10 · 浜辺（フィナーレ）</strong><span>ヒロインの部屋のかけらが散らばる、夜明けの海岸。カニは波と突風に耐えてしがみつき、その間に彼女のポスターが風に飛ばされていきます。</span></figcaption>
+          </figure>
+          <figure data-reveal>
+            <div class="frame"><img src="../../../media/light-as-wind/level10-posters.jpg" alt="Level 10：風に乗ってカニの頭上を舞うポスター" loading="lazy" /></div>
+            <figcaption><strong>Level 10 · 突風</strong><span>筆致のような風の筋と宙を舞う物を伴うスクリプト制御の突風。風がはっきり読み取れ、耐えるときの感触はやわらかくなるようにしました。</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="shell">
+      <div class="sectionHead" data-reveal>
+        <div>
+          <p class="eyebrow">システム</p>
+          <h2>物理、シェーダー &amp; 破壊表現</h2>
+        </div>
+        <p class="count">05 のハイライト</p>
+      </div>
+
+      <div class="split" style="margin-bottom:72px">
+        <div data-reveal>
+          <p class="eyebrow">01 · シミュレーション</p>
+          <h3 style="font-size:26px;margin-top:8px">風に舞う紙</h3>
+          <div class="prose" style="margin-top:16px">
+            <p>紙は 1 枚ずつ、<strong>風下側の辺</strong>を蝶番にして回転しながら持ち上がり、34° までめくれてから離れます。空中では速度が指数的な追従で目標の風速へ近づき、落ち葉のような揺れ（±0.3 m、周期 2.1 s）が傾きと振れを連動させるので、紙は曲がるたびにその方向へ身を傾けます。</p>
+            <p>風が届く前は、減衰の弱いバネで角がはためきます。壁の拘束によってポスターは壁の手前にとどまり、壁面に沿って滑り落ちるので、壁を突き抜けることはありません。</p>
+          </div>
+          <dl class="specs">
+            <div><dt>突風 1 回あたり</dt><dd>15–17 枚、すべて 0.22–2.33 s で画面外へ</dd></div>
+            <div><dt>壁へのめり込み</dt><dd>0.7–2.6 m → 0</dd></div>
+          </dl>
+        </div>
+        <figure style="margin:0" data-reveal>
+          <div class="frame"><img src="../../../media/light-as-wind/level10-still.webp" alt="風が吹く前の、浜辺の壁に貼られたポスター" loading="lazy" /></div>
+          <figcaption class="caption">モデルは純粋な C#（System.Numerics、エンジンの型は不使用）で、Unity は描画だけを担当します。</figcaption>
+        </figure>
+      </div>
+
+      <div class="split" style="margin-bottom:72px">
+        <div data-reveal>
+          <p class="eyebrow">02 · シェーダー · Worley ノイズ</p>
+          <h3 style="font-size:26px;margin-top:8px">空気の壁：夢の海の皮膜</h3>
+          <div class="prose" style="margin-top:16px">
+            <p>見えない壁は、バグではなく夢の一部として感じられる必要がありました。壁にはゆっくり漂う <strong>Voronoi / Worley の網目</strong>が浮かびます。線はセル境界までの正確な距離で描くため、どの角度でも 1 ピクセル幅のまま途切れません。境界ごとにプランクトンの色のいずれかを割り当て、ところどころで金色の粒がきらめきます。</p>
+            <p>ぶつかると一対のリングが広がって網目を押しのけ、衝突点から泡が漂い出します。幕は近づいたときにだけ現れます（1.8 m から、0.95 m で最大）。明るさはディザリングを使わないくっきりした段階で表現し、プロジェクト独自のヘッダー上に移植性のある HLSL で実装しました。</p>
+          </div>
+        </div>
+        <figure style="margin:0" data-reveal>
+          <div class="frame"><video data-autoplay muted loop playsinline preload="metadata" poster="../../../media/light-as-wind/airwall.jpg" aria-label="メカジキが空気の壁にぶつかり、Worley の網目にリングが広がる"><source src="../../../media/light-as-wind/airwall.mp4" type="video/mp4" /></video></div>
+        </figure>
+      </div>
+
+      <div class="split" style="margin-bottom:72px">
+        <div data-reveal>
+          <p class="eyebrow">03 · ゲームフィール</p>
+          <h3 style="font-size:26px;margin-top:8px">メカジキの泳ぎ</h3>
+          <div class="prose" style="margin-top:16px">
+            <p>メカジキは、マグロ型の脊椎の波動、本物の魚のように頭が尾と逆向きに振れる質量加重の反動、そしてストローハル数で決まる尾びれの振動数で泳ぎます。</p>
+            <p>私は操作感を調整しました。実際に壁に触れるまではブレーキをかけない（距離は進行方向に沿って吻の先端から測定）、天井や草の斜面に沿って速度を落とさずに滑る、跳躍の合間に潜る、上下の方向転換を素早くする、といった点です。</p>
+          </div>
+        </div>
+        <figure style="margin:0" data-reveal>
+          <div class="frame"><video data-autoplay muted loop playsinline preload="metadata" poster="../../../media/light-as-wind/swordfish-still.webp" aria-label="海面から跳び上がるメカジキ"><source src="../../../media/light-as-wind/swordfish.mp4" type="video/mp4" /></video></div>
+        </figure>
+      </div>
+
+      <div class="split" style="margin-bottom:72px">
+        <div data-reveal>
+          <p class="eyebrow">04 · シミュレーション</p>
+          <h3 style="font-size:26px;margin-top:8px">カニのツタ渡り</h3>
+          <div class="prose" style="margin-top:16px">
+            <p>カニは振り子で、ツタはそのハサミに追従するだけです。2.5D のゲームでは純粋な 3D 距離だと掴み損ねが続いたため、掴み判定は画面の平面上で測っています。プレイヤーは振りと同じ位相でしか漕げず、エネルギーの上限（最大 72°）によって、長いツタでもカニが画面外へ放り出されないようにしています。</p>
+            <p>各ツタは 18 ノードの Verlet ロープで、拘束の反復 8 回、水の抵抗、ゆっくりした揺れを備えています。ハサミより下のノードはカニの甲羅の外へ押し出されるので、めり込むことはありません。</p>
+          </div>
+          <dl class="specs">
+            <div><dt>平均フレーム時間（Level 7/8/9）</dt><dd>6.4/7.7/8.5 → 1.7/2.6/2.7 ms</dd></div>
+            <div><dt>16.7 ms を超えたフレーム数</dt><dd>89/165/166 → 4/0/0</dd></div>
+          </dl>
+        </div>
+        <figure style="margin:0" data-reveal>
+          <div class="frame"><video data-autoplay muted loop playsinline preload="metadata" aria-label="ツタからツタへと揺れて渡るカニ"><source src="../../../media/light-as-wind/vines.mp4" type="video/mp4" /></video></div>
+        </figure>
+      </div>
+
+      <div class="split">
+        <div data-reveal>
+          <p class="eyebrow">05 · 破壊表現</p>
+          <h3 style="font-size:26px;margin-top:8px">レベルを切り分ける</h3>
+        </div>
+        <div class="prose" data-reveal>
+          <p>このゲームにはインポートしたメッシュが一切ないため、破壊とは生成されたジオメトリを切ることを意味します。Level 06 の崩れるトンネルでは、洞窟の天井が自らを砕きます。頂点を溶接し、<strong>union-find</strong> で閉じた岩ごとにまとめ、長い岩はランダムな平面でクリップし（<strong>Sutherland–Hodgman</strong>、すべての属性を補間）、各切断面をファンで塞ぐことで、すべての破片が閉じたソリッドのまま保たれます。</p>
+          <p>切断処理はフレームあたり 4 ms の予算を持つコルーチンとして動き、プレイヤーがまだ 60 m 手前にいるうちに始まります。610 個の岩が 140–220 フレームかけて 169 個の破片になります。小さなプロップは、隣り合う破片同士で継ぎ目を共有するあらかじめ切り分けたピースで壊れ、破片は物理エンジンをまったく通さないため、コストはフレームあたり約 0.013 ms です。</p>
+          <dl class="specs">
+            <div><dt>トンネル崩落</dt><dd>岩 610 個 → 破片 169 個</dd></div>
+            <div><dt>プロップ破壊時の最悪フレーム</dt><dd>14.6 → 3.3 ms</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="shell">
+      <span>この身、風のごとく</span>
+      <a href="../../index.html#games">← すべての作品に戻る</a>
+    </div>
+  </footer>
+</body>
+</html>

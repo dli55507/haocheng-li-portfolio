@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>愿此身如风（Light as Wind） — 李昊成</title>
+  <meta name="description" content="愿此身如风——由 USC Games 五人团队打造的像素风海洋冒险游戏。介绍我负责的关卡、物理、着色器与破碎系统。" />
+  <meta property="og:title" content="愿此身如风（Light as Wind） — 李昊成" />
+  <meta property="og:image" content="https://lihaocheng.me/media/light-as-wind/poster.jpg" />
+  <link rel="icon" href="../../../favicon.svg" />
+  <link rel="stylesheet" href="../../../styles.css" />
+  <script src="../../../site.js" defer></script>
+</head>
+<body>
+  <header class="nav">
+    <div class="shell">
+      <a class="wordmark" href="../../index.html" aria-label="返回作品集"><span class="mark">HL</span><span class="name">Haocheng Li</span></a>
+      <div class="navRight">
+        <nav class="navLinks" aria-label="项目"><a href="../../index.html#games">← 全部作品</a></nav>
+        <details class="lang">
+          <summary aria-label="语言">中文</summary>
+          <ul>
+            <li><a href="../../../projects/light-as-wind/index.html" hreflang="en" lang="en">English</a></li>
+            <li><a href="index.html" hreflang="zh" lang="zh" aria-current="true">中文</a></li>
+            <li><a href="../../../ja/projects/light-as-wind/index.html" hreflang="ja" lang="ja">日本語</a></li>
+            <li><a href="../../../ko/projects/light-as-wind/index.html" hreflang="ko" lang="ko">한국어</a></li>
+            <li><a href="../../../fr/projects/light-as-wind/index.html" hreflang="fr" lang="fr">Français</a></li>
+          </ul>
+        </details>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <header class="detailHero shell">
+      <p class="eyebrow" data-reveal>游戏项目 · USC Games · That Game Jam · 五人团队</p>
+      <h1 data-reveal>愿此身如风（Light as Wind）</h1>
+      <p class="lede" data-reveal>一款梦幻的像素风横版游戏，穿越大海，奔向遥远的天空。我在团队中担任设计与工程师：独立负责十个关卡中的三个，并搭建了游戏所依赖的多套物理、着色器与破碎系统。</p>
+      <div class="heroActions" data-reveal>
+        <a class="btn primary" href="https://huxxshadow.itch.io/light-as-wind" target="_blank" rel="noreferrer">在 itch.io 试玩 ↗</a>
+        <a class="btn" href="https://lightaswind.com/" target="_blank" rel="noreferrer">官方网站 ↗</a>
+      </div>
+    </header>
+
+    <section class="shell" style="padding-top:0">
+      <figure style="margin:0" data-reveal>
+        <div class="frame">
+          <video data-autoplay muted loop playsinline preload="metadata" poster="../../../media/light-as-wind/poster.jpg" aria-label="愿此身如风实机画面：海星躲避巨大的鮟鱇鱼">
+            <source src="../../../media/light-as-wind/angler.mp4" type="video/mp4" />
+          </video>
+        </div>
+        <figcaption class="caption">第 03 关实机画面：躲避鮟鱇鱼。游戏中的所有生物都采用程序化动画，没有使用任何骨骼绑定。</figcaption>
+      </figure>
+    </section>
+
+    <section class="shell split">
+      <div data-reveal>
+        <p class="eyebrow">我的角色</p>
+        <h2>设计 · 工程师</h2>
+      </div>
+      <div class="prose" data-reveal>
+        <p>我从头到尾负责了第 04、06 和 10 关——包括场景、路线与机制——同时参与了全部十个关卡的设计、交互与 bug 修复。</p>
+        <p>工程方面，我专注于物体运动时的<em>手感</em>：被风卷起的纸张、剑鱼的游动、螃蟹的藤蔓摆荡，以及会碎裂的道具。我还为游戏中的“空气墙”编写了着色器。</p>
+        <p>项目有一条严格的规则：所有系统的逻辑都用不依赖引擎类型的纯 C# 编写，以便日后脱离 Unity；每一项改动都要先用数据验证——探针、日志和路线机器人——然后才看截图。</p>
+        <dl class="specs">
+          <div><dt>引擎</dt><dd>Unity 6 / C# / HLSL</dd></div>
+          <div><dt>团队</dt><dd>5 名学生，USC Games</dd></div>
+          <div><dt>平台</dt><dd>Windows（itch.io）</dd></div>
+          <div><dt>状态</dt><dd>第一部分已发布</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="systems">
+      <div class="shell">
+        <div class="sectionHead" data-reveal>
+          <div>
+            <p class="eyebrow">关卡设计</p>
+            <h2>我负责的三个关卡</h2>
+          </div>
+        </div>
+        <div class="gallery">
+          <figure data-reveal>
+            <div class="frame"><video data-autoplay muted loop playsinline preload="metadata" aria-label="第 04 关：热泉喷口上方会“呼吸”的石板"><source src="../../../media/light-as-wind/level04.mp4" type="video/mp4" /></video></div>
+            <figcaption><strong>第 04 关 · 热泉</strong><span>一个热液喷口关卡：喷口水流托起主角，路线需要考虑配重，石板像“呼吸”一样上下起伏，充当平台。</span></figcaption>
+          </figure>
+          <figure data-reveal>
+            <div class="frame"><video data-autoplay muted loop playsinline preload="metadata" aria-label="第 06 关：剑鱼游上珊瑚洞穴"><source src="../../../media/light-as-wind/level06.mp4" type="video/mp4" /></video></div>
+            <figcaption><strong>第 06 关 · 上升的洞穴</strong><span>剑鱼一路向上穿越的洞穴，包含物理水流、扇贝壳闸门、陡峭的珊瑚峡谷，以及在身后坍塌的隧道。</span></figcaption>
+          </figure>
+          <figure data-reveal>
+            <div class="frame"><img src="../../../media/light-as-wind/level10-peel.jpg" alt="第 10 关：螃蟹经过时，海岸墙上的海报纷纷剥落" loading="lazy" /></div>
+            <figcaption><strong>第 10 关 · 海岸（终章）</strong><span>黎明的海岸线上散落着女主角房间的碎片。螃蟹在海浪与阵风中坚持前行，而她的海报被风吹散。</span></figcaption>
+          </figure>
+          <figure data-reveal>
+            <div class="frame"><img src="../../../media/light-as-wind/level10-posters.jpg" alt="第 10 关：海报在风中飞过螃蟹上空" loading="lazy" /></div>
+            <figcaption><strong>第 10 关 · 阵风</strong><span>脚本化的阵风配有笔触般的风痕和空中飘飞的物件，让风向一目了然，顶风前行时手感也很柔和。</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="shell">
+      <div class="sectionHead" data-reveal>
+        <div>
+          <p class="eyebrow">系统</p>
+          <h2>物理、着色器与破碎</h2>
+        </div>
+        <p class="count">05 项亮点</p>
+      </div>
+
+      <div class="split" style="margin-bottom:72px">
+        <div data-reveal>
+          <p class="eyebrow">01 · 模拟</p>
+          <h3 style="font-size:26px;margin-top:8px">被风吹起的纸张</h3>
+          <div class="prose" style="margin-top:16px">
+            <p>每张纸以<strong>下风侧边缘</strong>为铰链旋转掀起，最多翻起 34°，随后脱离。在空中，它的速度以指数追赶的方式逐渐趋近目标风速；落叶式摆动（±0.3 m，周期 2.1 s）把倾斜与摆荡耦合起来，让纸张在每次转向时顺势倾斜。</p>
+            <p>风到来之前，纸角由欠阻尼弹簧驱动轻轻颤动。墙面约束让海报始终保持在墙前，并沿墙面滑落，绝不会穿墙。</p>
+          </div>
+          <dl class="specs">
+            <div><dt>每阵风</dt><dd>15–17 张纸，在 0.22–2.33 s 内全部飞出画面</dd></div>
+            <div><dt>穿墙深度</dt><dd>0.7–2.6 m → 0</dd></div>
+          </dl>
+        </div>
+        <figure style="margin:0" data-reveal>
+          <div class="frame"><img src="../../../media/light-as-wind/level10-still.webp" alt="起风前贴在海岸墙上的海报" loading="lazy" /></div>
+          <figcaption class="caption">模型由纯 C# 编写（System.Numerics，不依赖引擎类型），Unity 只负责绘制。</figcaption>
+        </figure>
+      </div>
+
+      <div class="split" style="margin-bottom:72px">
+        <div data-reveal>
+          <p class="eyebrow">02 · 着色器 · Worley 噪声</p>
+          <h3 style="font-size:26px;margin-top:8px">空气墙：梦境之海的表皮</h3>
+          <div class="prose" style="margin-top:16px">
+            <p>隐形墙需要看起来像梦境的一部分，而不是 bug。墙面呈现一张缓缓漂移的 <strong>Voronoi / Worley 网</strong>：线条按到单元边界的真实距离绘制，因此在任何角度下都保持一像素宽且连续不断；每条边界取一种浮游生物的颜色，其间点缀着几颗闪烁的金色光点。</p>
+            <p>撞击时会向外扩散一对波环，把网推开，撞击点还会飘出气泡。只有靠近时帷幕才会显现（1.8 m 开始出现，0.95 m 时完全显现）。亮度采用干净的分级，不做抖动处理，以可移植的 HLSL 写成，基于项目自己的头文件。</p>
+          </div>
+        </div>
+        <figure style="margin:0" data-reveal>
+          <div class="frame"><video data-autoplay muted loop playsinline preload="metadata" poster="../../../media/light-as-wind/airwall.jpg" aria-label="剑鱼撞上空气墙，波环在 Worley 网上扩散"><source src="../../../media/light-as-wind/airwall.mp4" type="video/mp4" /></video></div>
+        </figure>
+      </div>
+
+      <div class="split" style="margin-bottom:72px">
+        <div data-reveal>
+          <p class="eyebrow">03 · 游戏手感</p>
+          <h3 style="font-size:26px;margin-top:8px">剑鱼的游动</h3>
+          <div class="prose" style="margin-top:16px">
+            <p>剑鱼采用金枪鱼式的脊柱波动游泳，配合按质量加权的反冲，让头部像真鱼一样与尾部反向摆动；尾鳍摆动频率由 Strouhal 数决定。</p>
+            <p>我负责调校它的操控手感：在真正碰到墙之前不会减速（距离沿运动路径从吻尖量起），沿洞顶和草坡滑行时不损失速度，跃出水面之间可以下潜，上下转向也更加灵敏。</p>
+          </div>
+        </div>
+        <figure style="margin:0" data-reveal>
+          <div class="frame"><video data-autoplay muted loop playsinline preload="metadata" poster="../../../media/light-as-wind/swordfish-still.webp" aria-label="剑鱼跃出海面"><source src="../../../media/light-as-wind/swordfish.mp4" type="video/mp4" /></video></div>
+        </figure>
+      </div>
+
+      <div class="split" style="margin-bottom:72px">
+        <div data-reveal>
+          <p class="eyebrow">04 · 模拟</p>
+          <h3 style="font-size:26px;margin-top:8px">螃蟹的藤蔓摆荡</h3>
+          <div class="prose" style="margin-top:16px">
+            <p>螃蟹本身是一个单摆，藤蔓只是跟随它的钳子。抓取判定在画面平面内进行，因为在 2.5D 游戏里，纯 3D 距离总是抓不准。玩家只能顺着摆动的相位发力，能量上限（最大 72°）防止长藤蔓把螃蟹甩出画面。</p>
+            <p>每根藤蔓是一条 18 个节点的 Verlet 绳索，进行 8 次约束迭代，带有水阻和缓慢摆动；钳子以下的节点会被推出蟹壳，避免穿模。</p>
+          </div>
+          <dl class="specs">
+            <div><dt>第 7/8/9 关平均帧耗时</dt><dd>6.4/7.7/8.5 → 1.7/2.6/2.7 ms</dd></div>
+            <div><dt>超过 16.7 ms 的帧数</dt><dd>89/165/166 → 4/0/0</dd></div>
+          </dl>
+        </div>
+        <figure style="margin:0" data-reveal>
+          <div class="frame"><video data-autoplay muted loop playsinline preload="metadata" aria-label="螃蟹在藤蔓之间摆荡"><source src="../../../media/light-as-wind/vines.mp4" type="video/mp4" /></video></div>
+        </figure>
+      </div>
+
+      <div class="split">
+        <div data-reveal>
+          <p class="eyebrow">05 · 破碎</p>
+          <h3 style="font-size:26px;margin-top:8px">把关卡切成碎块</h3>
+        </div>
+        <div class="prose" data-reveal>
+          <p>游戏中没有任何导入的网格，所以破碎意味着切割程序生成的几何体。在第 06 关坍塌的隧道中，洞顶会自行碎裂：先焊接顶点，再用 <strong>union-find（并查集）</strong>归组成封闭的岩块；较长的岩块用随机平面裁切（<strong>Sutherland–Hodgman</strong>，所有顶点属性都会插值），每个切口再用扇形封口，确保每块碎片都是封闭实体。</p>
+          <p>切割以协程运行，每帧预算 4 ms，在玩家距离还有 60 m 时就开始：610 块岩石在 140–220 帧内变成 169 块碎片。较小的道具则使用预先切好的碎块，相邻碎块共享接缝；碎片完全绕开物理引擎——每帧仅约 0.013 ms。</p>
+          <dl class="specs">
+            <div><dt>隧道坍塌</dt><dd>610 块岩石 → 169 块碎片</dd></div>
+            <div><dt>道具击碎最差帧</dt><dd>14.6 → 3.3 ms</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="shell">
+      <span>愿此身如风</span>
+      <a href="../../index.html#games">← 返回全部作品</a>
+    </div>
+  </footer>
+</body>
+</html>
