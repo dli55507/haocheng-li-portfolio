@@ -18,6 +18,13 @@ if ('IntersectionObserver' in window) {
   items.forEach((el) => el.classList.add('is-visible'));
 }
 
+// Close the language menu when clicking anywhere else.
+document.addEventListener('click', (e) => {
+  document.querySelectorAll('details.lang[open]').forEach((d) => {
+    if (!d.contains(e.target)) d.removeAttribute('open');
+  });
+});
+
 // Autoplaying preview videos only play while on screen (saves bandwidth and battery).
 const previews = document.querySelectorAll('video[data-autoplay]');
 if ('IntersectionObserver' in window) {

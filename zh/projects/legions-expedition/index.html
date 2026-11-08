@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Legion’s Expedition — 李浩成</title>
+  <meta name="description" content="Legion's Expedition：一款受自走棋启发的幸存者类游戏，使用 Godot 开发，为华盛顿大学 CSE 本科毕业设计项目。" />
+  <meta property="og:image" content="https://lihaocheng.me/og.png" />
+  <link rel="icon" href="../../../favicon.svg" />
+  <link rel="stylesheet" href="../../../styles.css" />
+  <script src="../../../site.js" defer></script>
+</head>
+<body>
+  <header class="nav">
+    <div class="shell">
+      <a class="wordmark" href="../../index.html" aria-label="返回作品集"><span class="mark">HL</span><span class="name">Haocheng Li</span></a>
+      <div class="navRight">
+        <nav class="navLinks" aria-label="项目"><a href="../../index.html#games">← 全部作品</a></nav>
+        <details class="lang">
+          <summary aria-label="语言">中文</summary>
+          <ul>
+            <li><a href="../../../projects/legions-expedition/index.html" hreflang="en" lang="en">English</a></li>
+            <li><a href="index.html" hreflang="zh" lang="zh" aria-current="true">中文</a></li>
+            <li><a href="../../../ja/projects/legions-expedition/index.html" hreflang="ja" lang="ja">日本語</a></li>
+            <li><a href="../../../ko/projects/legions-expedition/index.html" hreflang="ko" lang="ko">한국어</a></li>
+            <li><a href="../../../fr/projects/legions-expedition/index.html" hreflang="fr" lang="fr">Français</a></li>
+          </ul>
+        </details>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <header class="detailHero shell">
+      <p class="eyebrow" data-reveal>游戏项目 · 华盛顿大学 CSE 本科毕业设计</p>
+      <h1 data-reveal>Legion’s Expedition</h1>
+      <p class="lede" data-reveal>一款受自走棋启发的幸存者类游戏（“军团远征”）：组建军团、发掘小队羁绊，并在不断升级的压力下让队伍存活下去。</p>
+      <div class="heroActions" data-reveal>
+        <a class="btn primary" href="https://haochl5.github.io/legions-expedition-godot/" target="_blank" rel="noreferrer">试玩在线版本 ↗</a>
+        <a class="btn" href="#showcase">观看演示视频 ↓</a>
+      </div>
+    </header>
+
+    <section id="showcase" class="shell" style="padding-top:0">
+      <div class="frame" data-reveal>
+        <video controls playsinline preload="metadata" aria-label="Legion's Expedition 游戏演示">
+          <source src="../../../legions-expedition-showcase.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </section>
+
+    <section class="shell split">
+      <div data-reveal>
+        <p class="eyebrow">核心概念</p>
+        <h2>统领小队，左右战局。</h2>
+      </div>
+      <div class="prose" data-reveal>
+        <p>与传统幸存者类游戏不同，在 Legion’s Expedition 中玩家并非孤身作战，而是作为指挥官，率领一支自主作战的英雄小队。</p>
+        <p>玩家专注于战术走位、闪避和精准射击；招募来的单位则依靠各自专属的 AI 行为和独特技能，自行索敌、投入战斗。</p>
+        <p>随着敌潮一波比一波凶猛，玩家需要招募新单位、发掘强力组合，并将三个相同英雄合成为一个更强的版本，把一支杂牌小队打造成配合默契的战斗部队。</p>
+        <dl class="specs">
+          <div><dt>开发工具</dt><dd>Godot / GDScript</dd></div>
+          <div><dt>核心重点</dt><dd>小队战斗 / 程序化系统</dd></div>
+          <div><dt>数据采集</dt><dd>后端数据分析 API</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="shell split">
+      <div data-reveal>
+        <p class="eyebrow">招募系统</p>
+        <h2>挑选角色，构建阵型。</h2>
+        <p style="margin-top:16px;color:var(--text-2);font-size:17px">招募、刷新、部署或锁定商店。每一个决定都会影响小队的前排、伤害构成、英雄羁绊以及之后的合成选择。</p>
+      </div>
+      <figure style="margin:0" data-reveal>
+        <div class="frame"><img src="../../../legions-expedition-recruitment.png" alt="招募商店界面，可选择游侠、刺客和侍从三种英雄" loading="lazy" /></div>
+        <figcaption class="caption">英雄招募让每一次波次间隙都成为一次组建小队的决策。</figcaption>
+      </figure>
+    </section>
+
+    <section class="shell">
+      <div class="sectionHead" data-reveal>
+        <div>
+          <p class="eyebrow">Boss 战</p>
+          <h2>三个 Boss，各具攻击模式</h2>
+        </div>
+      </div>
+      <div class="frame" data-reveal>
+        <video controls playsinline preload="metadata" aria-label="Legion's Expedition Boss 战演示">
+          <source src="../../../legions-expedition-boss-fights.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <p class="caption">每个 Boss 都有单独设计的攻击模式，考验玩家的走位、站位和小队搭配。</p>
+    </section>
+
+    <section class="systems">
+      <div class="shell">
+        <div class="sectionHead" data-reveal>
+          <div>
+            <p class="eyebrow">系统与功能</p>
+            <h2>六大支柱</h2>
+          </div>
+        </div>
+        <div class="features">
+          <article data-reveal><span class="num">01</span><h3>小队制幸存者战斗</h3><p>游戏受《吸血鬼幸存者》和自走棋启发，将幸存者玩法从孤身作战转变为指挥一支不断壮大的自主英雄小队。</p></article>
+          <article data-reveal><span class="num">02</span><h3>英雄、敌人与 Boss</h3><p>六种以上的英雄设计为小队带来各不相同的能力，六种以上的小怪和三个 Boss 也各有独特的攻击模式。</p></article>
+          <article data-reveal><span class="num">03</span><h3>三合一成长</h3><p>三个相同英雄合成为一个更强的版本——这一经典的自走棋规则让小队不断变强，以应对愈发危险的敌潮。</p></article>
+          <article data-reveal><span class="num">04</span><h3>程序化拼接地图</h3><p>每一局都会按照布局规则重新组合地图图块和环境素材，让战场保持多样，同时不牺牲路线的可读性。</p></article>
+          <article data-reveal><span class="num">05</span><h3>隐藏式自适应难度</h3><p>受《生化危机》系列启发，后台的动态难度系统会随着对局进展调整压力。</p></article>
+          <article data-reveal><span class="num">06</span><h3>实时玩家遥测</h3><p>后端数据分析 API 实时采集存活时间、进度及其他游玩指标，为评估和设计迭代提供支持。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="shell">
+      <div class="split" style="margin-bottom:40px">
+        <div data-reveal>
+          <p class="eyebrow">遥测与迭代</p>
+          <h2>量化每一局，打磨整款游戏。</h2>
+        </div>
+        <div class="prose" data-reveal>
+          <p>集成的数据分析 API 会将会话、进度和存活数据实时发送到 Talo。这些记录既用于课程报告，也让我们能够跨版本比较平衡性调整对玩家行为的影响。</p>
+        </div>
+      </div>
+      <div class="gallery">
+        <figure data-reveal>
+          <div class="frame"><img src="../../../legions-expedition-talo-overview.png" alt="Talo 仪表盘，显示玩家、会话和事件记录" loading="lazy" /></div>
+          <figcaption><span>Talo 活动概览：134 名新玩家、12 名回访玩家、178 次会话、1,445 个事件，以及 55 个独立事件提交者。</span></figcaption>
+        </figure>
+        <figure data-reveal>
+          <div class="frame"><img src="../../../legions-expedition-survival-curve.png" alt="对比第三版与第四版迭代的玩家存活曲线" loading="lazy" /></div>
+          <figcaption><span>存活曲线对比了第 3 版（n=38）与第 4 版（n=95），将原始遥测数据转化为平衡性决策的依据。</span></figcaption>
+        </figure>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="shell">
+      <span>Legion’s Expedition</span>
+      <a href="../../index.html#games">← 返回全部作品</a>
+    </div>
+  </footer>
+</body>
+</html>

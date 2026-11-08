@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Legion’s Expedition — Haocheng Li</title>
+  <meta name="description" content="Legion's Expedition — UW CSE 졸업 캡스톤으로 Godot에서 개발한 오토체스 기반 서바이버 게임." />
+  <meta property="og:image" content="https://lihaocheng.me/og.png" />
+  <link rel="icon" href="../../../favicon.svg" />
+  <link rel="stylesheet" href="../../../styles.css" />
+  <script src="../../../site.js" defer></script>
+</head>
+<body>
+  <header class="nav">
+    <div class="shell">
+      <a class="wordmark" href="../../index.html" aria-label="포트폴리오로 돌아가기"><span class="mark">HL</span><span class="name">Haocheng Li</span></a>
+      <div class="navRight">
+        <nav class="navLinks" aria-label="프로젝트"><a href="../../index.html#games">← 전체 작업</a></nav>
+        <details class="lang">
+          <summary aria-label="언어">한국어</summary>
+          <ul>
+            <li><a href="../../../projects/legions-expedition/index.html" hreflang="en" lang="en">English</a></li>
+            <li><a href="../../../zh/projects/legions-expedition/index.html" hreflang="zh" lang="zh">中文</a></li>
+            <li><a href="../../../ja/projects/legions-expedition/index.html" hreflang="ja" lang="ja">日本語</a></li>
+            <li><a href="index.html" hreflang="ko" lang="ko" aria-current="true">한국어</a></li>
+            <li><a href="../../../fr/projects/legions-expedition/index.html" hreflang="fr" lang="fr">Français</a></li>
+          </ul>
+        </details>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <header class="detailHero shell">
+      <p class="eyebrow" data-reveal>게임 프로젝트 · UW CSE 졸업 캡스톤</p>
+      <h1 data-reveal>Legion’s Expedition</h1>
+      <p class="lede" data-reveal>군단을 꾸리고, 분대 시너지를 발견하고, 점점 거세지는 압박 속에서 끝까지 살아남는 오토체스 기반 서바이버 게임입니다.</p>
+      <div class="heroActions" data-reveal>
+        <a class="btn primary" href="https://haochl5.github.io/legions-expedition-godot/" target="_blank" rel="noreferrer">라이브 빌드 플레이 ↗</a>
+        <a class="btn" href="#showcase">쇼케이스 영상 보기 ↓</a>
+      </div>
+    </header>
+
+    <section id="showcase" class="shell" style="padding-top:0">
+      <div class="frame" data-reveal>
+        <video controls playsinline preload="metadata" aria-label="Legion's Expedition 게임플레이 쇼케이스">
+          <source src="../../../legions-expedition-showcase.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </section>
+
+    <section class="shell split">
+      <div data-reveal>
+        <p class="eyebrow">기본 콘셉트</p>
+        <h2>분대를 이끌고, 판을 만들어 가세요.</h2>
+      </div>
+      <div class="prose" data-reveal>
+        <p>기존 서바이버 게임과 달리, Legion’s Expedition에서 플레이어는 홀로 싸우는 전사가 아닙니다. 자율적으로 싸우는 챔피언 분대를 이끄는 지휘관이 됩니다.</p>
+        <p>플레이어는 전술적인 이동, 회피, 정밀 사격에 집중하고, 영입한 유닛들은 각자의 전용 AI 행동과 고유 스킬로 적을 찾아 교전합니다.</p>
+        <p>웨이브가 거듭될수록 난도가 높아지며, 새 유닛을 영입하고 강력한 조합을 찾아내고 같은 챔피언 셋을 하나의 더 강한 챔피언으로 합성해 나갑니다. 그렇게 오합지졸 분대가 손발이 맞는 전투 부대로 거듭납니다.</p>
+        <dl class="specs">
+          <div><dt>개발 환경</dt><dd>Godot / GDScript</dd></div>
+          <div><dt>핵심 요소</dt><dd>분대 전투 / 절차적 시스템</dd></div>
+          <div><dt>계측</dt><dd>백엔드 분석 API</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="shell split">
+      <div data-reveal>
+        <p class="eyebrow">영입 시스템</p>
+        <h2>역할을 고르고, 진형을 짜세요.</h2>
+        <p style="margin-top:16px;color:var(--text-2);font-size:17px">영입, 리롤, 배치, 상점 잠금. 모든 선택이 분대의 전열, 딜 구성, 챔피언 시너지, 그리고 이후의 합성 가능성을 결정합니다.</p>
+      </div>
+      <figure style="margin:0" data-reveal>
+        <div class="frame"><img src="../../../legions-expedition-recruitment.png" alt="레인저, 어쌔신, 스콰이어 챔피언을 선택할 수 있는 영입 상점" loading="lazy" /></div>
+        <figcaption class="caption">챔피언 영입으로 웨이브 사이의 휴식 시간이 매번 분대 구성을 고민하는 순간이 됩니다.</figcaption>
+      </figure>
+    </section>
+
+    <section class="shell">
+      <div class="sectionHead" data-reveal>
+        <div>
+          <p class="eyebrow">보스전</p>
+          <h2>서로 다른 공격 패턴을 지닌 세 보스</h2>
+        </div>
+      </div>
+      <div class="frame" data-reveal>
+        <video controls playsinline preload="metadata" aria-label="Legion's Expedition 보스전 쇼케이스">
+          <source src="../../../legions-expedition-boss-fights.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <p class="caption">보스마다 개별 설계된 공격 패턴이 플레이어의 이동, 위치 선정, 분대 구성을 시험합니다.</p>
+    </section>
+
+    <section class="systems">
+      <div class="shell">
+        <div class="sectionHead" data-reveal>
+          <div>
+            <p class="eyebrow">시스템과 기능</p>
+            <h2>여섯 가지 핵심 기둥</h2>
+          </div>
+        </div>
+        <div class="features">
+          <article data-reveal><span class="num">01</span><h3>분대 중심 서바이버 전투</h3><p>뱀파이어 서바이버와 오토체스에서 영감을 받아, 서바이버 공식을 홀로 싸우는 전사에서 점점 커지는 자율 챔피언 분대를 지휘하는 방식으로 바꾸었습니다.</p></article>
+          <article data-reveal><span class="num">02</span><h3>챔피언, 적, 보스</h3><p>6종 이상의 챔피언이 분대에 저마다의 능력을 더하고, 6종 이상의 일반 몬스터와 3종의 보스가 각자의 공격 패턴을 선보입니다.</p></article>
+          <article data-reveal><span class="num">03</span><h3>3합성 성장</h3><p>같은 챔피언 셋이 하나의 더 강한 챔피언으로 합쳐집니다. 오토체스의 익숙한 규칙으로, 점점 위험해지는 웨이브에 맞서 분대를 강화합니다.</p></article>
+          <article data-reveal><span class="num">04</span><h3>절차적으로 조립되는 맵</h3><p>매 판마다 레이아웃 규칙에 따라 맵 타일과 환경 에셋을 재조합해, 경로의 가독성을 해치지 않으면서도 매번 다른 전장을 만들어 냅니다.</p></article>
+          <article data-reveal><span class="num">05</span><h3>숨겨진 적응형 난이도</h3><p>바이오하자드 시리즈에서 영감을 받은 동적 난이도 시스템이 보이지 않는 곳에서 진행 상황에 맞춰 압박 강도를 조절합니다.</p></article>
+          <article data-reveal><span class="num">06</span><h3>실시간 플레이어 텔레메트리</h3><p>백엔드 분석 API가 생존 시간, 진행도 등 플레이 지표를 실시간으로 수집해 평가와 디자인 반복 개선을 뒷받침합니다.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="shell">
+      <div class="split" style="margin-bottom:40px">
+        <div data-reveal>
+          <p class="eyebrow">텔레메트리와 반복 개선</p>
+          <h2>플레이를 측정하고, 게임을 다듬습니다.</h2>
+        </div>
+        <div class="prose" data-reveal>
+          <p>통합된 분석 API가 세션, 진행도, 생존 데이터를 실시간으로 Talo에 전송합니다. 이 기록은 학업 보고에 활용되며, 밸런스 변경이 반복 버전별로 플레이어 행동에 어떤 영향을 주는지 비교할 수 있게 해 줍니다.</p>
+        </div>
+      </div>
+      <div class="gallery">
+        <figure data-reveal>
+          <div class="frame"><img src="../../../legions-expedition-talo-overview.png" alt="플레이어, 세션, 이벤트 기록을 보여 주는 Talo 대시보드" loading="lazy" /></div>
+          <figcaption><span>Talo 활동 개요: 신규 플레이어 134명, 재방문 플레이어 12명, 세션 178회, 이벤트 1,445건, 이벤트를 제출한 고유 사용자 55명.</span></figcaption>
+        </figure>
+        <figure data-reveal>
+          <div class="frame"><img src="../../../legions-expedition-survival-curve.png" alt="3차와 4차 반복 버전의 플레이어 생존 곡선 비교" loading="lazy" /></div>
+          <figcaption><span>생존 곡선으로 3차 반복 버전(n=38)과 4차 반복 버전(n=95)을 비교해, 원시 텔레메트리를 밸런스 결정의 근거로 바꾸었습니다.</span></figcaption>
+        </figure>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="shell">
+      <span>Legion’s Expedition</span>
+      <a href="../../index.html#games">← 전체 작업으로 돌아가기</a>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Legion’s Expedition — Haocheng Li</title>
+  <meta name="description" content="Legion's Expedition — UW CSE 卒業キャップストーンとして Godot で開発した、オートチェスに着想を得たサバイバーゲーム。" />
+  <meta property="og:image" content="https://lihaocheng.me/og.png" />
+  <link rel="icon" href="../../../favicon.svg" />
+  <link rel="stylesheet" href="../../../styles.css" />
+  <script src="../../../site.js" defer></script>
+</head>
+<body>
+  <header class="nav">
+    <div class="shell">
+      <a class="wordmark" href="../../index.html" aria-label="ポートフォリオに戻る"><span class="mark">HL</span><span class="name">Haocheng Li</span></a>
+      <div class="navRight">
+        <nav class="navLinks" aria-label="プロジェクト"><a href="../../index.html#games">← すべての作品</a></nav>
+        <details class="lang">
+          <summary aria-label="言語">日本語</summary>
+          <ul>
+            <li><a href="../../../projects/legions-expedition/index.html" hreflang="en" lang="en">English</a></li>
+            <li><a href="../../../zh/projects/legions-expedition/index.html" hreflang="zh" lang="zh">中文</a></li>
+            <li><a href="index.html" hreflang="ja" lang="ja" aria-current="true">日本語</a></li>
+            <li><a href="../../../ko/projects/legions-expedition/index.html" hreflang="ko" lang="ko">한국어</a></li>
+            <li><a href="../../../fr/projects/legions-expedition/index.html" hreflang="fr" lang="fr">Français</a></li>
+          </ul>
+        </details>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <header class="detailHero shell">
+      <p class="eyebrow" data-reveal>ゲームプロジェクト · UW CSE 卒業キャップストーン</p>
+      <h1 data-reveal>Legion’s Expedition</h1>
+      <p class="lede" data-reveal>オートチェスに着想を得たサバイバーゲームです。軍団を築き、部隊のシナジーを見つけ出し、高まり続けるプレッシャーの中で生き残りを目指します。</p>
+      <div class="heroActions" data-reveal>
+        <a class="btn primary" href="https://haochl5.github.io/legions-expedition-godot/" target="_blank" rel="noreferrer">公開ビルドをプレイ ↗</a>
+        <a class="btn" href="#showcase">紹介映像を見る ↓</a>
+      </div>
+    </header>
+
+    <section id="showcase" class="shell" style="padding-top:0">
+      <div class="frame" data-reveal>
+        <video controls playsinline preload="metadata" aria-label="Legion's Expedition のゲームプレイ紹介映像">
+          <source src="../../../legions-expedition-showcase.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </section>
+
+    <section class="shell split">
+      <div data-reveal>
+        <p class="eyebrow">コンセプト</p>
+        <h2>部隊を率い、ランを形づくる。</h2>
+      </div>
+      <div class="prose" data-reveal>
+        <p>一般的なサバイバーゲームとは異なり、Legion’s Expedition のプレイヤーは孤独な戦士ではありません。自律的に戦うチャンピオンの部隊を率いる指揮官となります。</p>
+        <p>プレイヤーは戦術的な移動、回避、精密な射撃に集中し、雇った仲間たちはそれぞれ専用の AI 行動と固有スキルで敵を見つけて交戦します。</p>
+        <p>ウェーブが進むごとに難しさが増す中で、新たなユニットを獲得し、強力な組み合わせを発見し、同じチャンピオン3体をより強い1体へと合成していきます。寄せ集めの部隊が、やがて連携の取れた戦闘集団へと成長します。</p>
+        <dl class="specs">
+          <div><dt>開発環境</dt><dd>Godot / GDScript</dd></div>
+          <div><dt>主な焦点</dt><dd>部隊戦闘 / プロシージャルシステム</dd></div>
+          <div><dt>計測</dt><dd>バックエンド分析 API</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="shell split">
+      <div data-reveal>
+        <p class="eyebrow">雇用システム</p>
+        <h2>役割を選び、陣形を組む。</h2>
+        <p style="margin-top:16px;color:var(--text-2);font-size:17px">雇用、リロール、配置、ショップのロック。一つひとつの判断が、部隊の前衛、ダメージ構成、チャンピオンのシナジー、そして今後の合成の選択肢を左右します。</p>
+      </div>
+      <figure style="margin:0" data-reveal>
+        <div class="frame"><img src="../../../legions-expedition-recruitment.png" alt="レンジャー、アサシン、スクワイアのチャンピオンを選べる雇用ショップ" loading="lazy" /></div>
+        <figcaption class="caption">チャンピオンの雇用によって、ウェーブ間の休憩が部隊編成の判断の場になります。</figcaption>
+      </figure>
+    </section>
+
+    <section class="shell">
+      <div class="sectionHead" data-reveal>
+        <div>
+          <p class="eyebrow">ボス戦</p>
+          <h2>3体のボス、それぞれ異なる攻撃パターン</h2>
+        </div>
+      </div>
+      <div class="frame" data-reveal>
+        <video controls playsinline preload="metadata" aria-label="Legion's Expedition のボス戦紹介映像">
+          <source src="../../../legions-expedition-boss-fights.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <p class="caption">ボス戦では、個別に設計された攻撃パターンを通じて、移動、立ち位置、部隊構成が試されます。</p>
+    </section>
+
+    <section class="systems">
+      <div class="shell">
+        <div class="sectionHead" data-reveal>
+          <div>
+            <p class="eyebrow">システムと機能</p>
+            <h2>6つの柱</h2>
+          </div>
+        </div>
+        <div class="features">
+          <article data-reveal><span class="num">01</span><h3>部隊を率いるサバイバー戦闘</h3><p>Vampire Survivors とオートチェスに着想を得て、サバイバーの定石を「孤独な戦士」から「成長していく自律型チャンピオン部隊の指揮」へと転換しました。</p></article>
+          <article data-reveal><span class="num">02</span><h3>チャンピオン、敵、ボス</h3><p>6種類以上のチャンピオンがそれぞれ異なる能力を部隊にもたらし、6種類以上の雑魚敵と3体のボスが独自の攻撃パターンを持ち込みます。</p></article>
+          <article data-reveal><span class="num">03</span><h3>3体合成による成長</h3><p>同じチャンピオン3体を、より強い1体へと合成します。オートチェスでおなじみのルールで、危険度を増すウェーブに向けて部隊を強化します。</p></article>
+          <article data-reveal><span class="num">04</span><h3>プロシージャル生成マップ</h3><p>ランごとにレイアウトルールに従ってマップタイルと環境アセットを組み替え、道筋の分かりやすさを損なわずに、毎回異なる戦場を生み出します。</p></article>
+          <article data-reveal><span class="num">05</span><h3>隠れた適応型難易度</h3><p>バイオハザードシリーズに着想を得た裏側の動的難易度システムが、ランの展開に応じてプレッシャーを調整します。</p></article>
+          <article data-reveal><span class="num">06</span><h3>リアルタイムのプレイヤーテレメトリ</h3><p>バックエンドの分析 API が、生存時間、進行状況などのプレイ指標をリアルタイムで記録し、評価とデザインの改善を支えます。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="shell">
+      <div class="split" style="margin-bottom:40px">
+        <div data-reveal>
+          <p class="eyebrow">テレメトリと改善</p>
+          <h2>ランを計測し、ゲームを磨く。</h2>
+        </div>
+        <div class="prose" data-reveal>
+          <p>組み込んだ分析 API が、セッション、進行状況、生存に関するデータをリアルタイムで Talo に送信します。これらの記録は学術的なレポートに活用されるほか、イテレーションをまたいでバランス調整がプレイヤーの行動にどう影響したかを比較することを可能にします。</p>
+        </div>
+      </div>
+      <div class="gallery">
+        <figure data-reveal>
+          <div class="frame"><img src="../../../legions-expedition-talo-overview.png" alt="プレイヤー、セッション、イベントの記録を表示する Talo ダッシュボード" loading="lazy" /></div>
+          <figcaption><span>Talo のアクティビティ概要：新規プレイヤー 134 人、リピーター 12 人、セッション 178 件、イベント 1,445 件、イベント送信者 55 人（ユニーク）。</span></figcaption>
+        </figure>
+        <figure data-reveal>
+          <div class="frame"><img src="../../../legions-expedition-survival-curve.png" alt="イテレーション3と4を比較したプレイヤー生存曲線" loading="lazy" /></div>
+          <figcaption><span>イテレーション3（n=38）とイテレーション4（n=95）の生存曲線を比較し、生のテレメトリをバランス調整の根拠へと変えています。</span></figcaption>
+        </figure>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="shell">
+      <span>Legion’s Expedition</span>
+      <a href="../../index.html#games">← すべての作品に戻る</a>
+    </div>
+  </footer>
+</body>
+</html>

@@ -10,6 +10,12 @@
   <meta property="og:image" content="https://lihaocheng.me/og.png" />
   <meta property="og:url" content="https://lihaocheng.me/" />
   <meta name="twitter:card" content="summary_large_image" />
+  <link rel="alternate" hreflang="en" href="https://lihaocheng.me/" />
+  <link rel="alternate" hreflang="zh" href="https://lihaocheng.me/zh/" />
+  <link rel="alternate" hreflang="ja" href="https://lihaocheng.me/ja/" />
+  <link rel="alternate" hreflang="ko" href="https://lihaocheng.me/ko/" />
+  <link rel="alternate" hreflang="fr" href="https://lihaocheng.me/fr/" />
+  <link rel="alternate" hreflang="x-default" href="https://lihaocheng.me/" />
   <link rel="icon" href="favicon.svg" />
   <link rel="stylesheet" href="styles.css" />
   <script src="site.js" defer></script>
@@ -18,11 +24,23 @@
   <header class="nav">
     <div class="shell">
       <a class="wordmark" href="#top" aria-label="Home"><span class="mark">HL</span><span class="name">Haocheng Li</span></a>
-      <nav class="navLinks" aria-label="Primary">
-        <a href="#games">Games</a>
-        <a href="#systems">Systems</a>
-        <a href="#experience">Experience</a>
-      </nav>
+      <div class="navRight">
+        <nav class="navLinks" aria-label="Primary">
+          <a href="#games">Games</a>
+          <a class="hideSm" href="#systems">Systems</a>
+          <a href="#experience">Experience</a>
+        </nav>
+        <details class="lang">
+          <summary aria-label="Language">EN</summary>
+          <ul>
+            <li><a href="index.html" hreflang="en" lang="en" aria-current="true">English</a></li>
+            <li><a href="zh/index.html" hreflang="zh" lang="zh">中文</a></li>
+            <li><a href="ja/index.html" hreflang="ja" lang="ja">日本語</a></li>
+            <li><a href="ko/index.html" hreflang="ko" lang="ko">한국어</a></li>
+            <li><a href="fr/index.html" hreflang="fr" lang="fr">Français</a></li>
+          </ul>
+        </details>
+      </div>
     </div>
   </header>
 

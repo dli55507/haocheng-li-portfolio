@@ -88,6 +88,37 @@ p { margin: 0; }
 }
 .navLinks a:hover { background: var(--surface-2); color: var(--text); }
 
+.navRight { display: flex; align-items: center; gap: 8px; }
+
+/* Language menu: a native <details> dropdown, no JS needed. */
+.lang { position: relative; }
+.lang summary {
+  list-style: none; cursor: pointer;
+  display: flex; align-items: center; gap: 6px;
+  height: 34px; padding: 0 12px; border-radius: 8px;
+  border: 1px solid var(--line); background: var(--surface);
+  color: var(--text-2); font-size: 14px; font-weight: 600;
+}
+.lang summary::-webkit-details-marker { display: none; }
+.lang summary::after { content: "▾"; font-size: 11px; color: var(--text-3); }
+.lang summary:hover { color: var(--text); border-color: var(--text-3); }
+.lang ul {
+  position: absolute; right: 0; top: calc(100% + 6px);
+  min-width: 140px; margin: 0; padding: 6px; list-style: none;
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: 12px; box-shadow: var(--shadow);
+}
+.lang li a { display: block; padding: 7px 10px; border-radius: 8px; font-size: 14px; color: var(--text-2); }
+.lang li a:hover { background: var(--surface-2); color: var(--text); }
+.lang li a[aria-current="true"] { color: var(--accent); font-weight: 600; }
+
+/* Per-language font stacks so CJK text uses the right glyphs. */
+:lang(zh) body, body:lang(zh) { font-family: "Inter", "Segoe UI", system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif; }
+:lang(ja) body, body:lang(ja) { font-family: "Inter", "Segoe UI", system-ui, -apple-system, "Hiragino Sans", "Yu Gothic UI", "Meiryo", "Noto Sans JP", sans-serif; }
+:lang(ko) body, body:lang(ko) { font-family: "Inter", "Segoe UI", system-ui, -apple-system, "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif; }
+:lang(zh) h1, :lang(ja) h1, :lang(ko) h1, :lang(zh) h2, :lang(ja) h2, :lang(ko) h2 { letter-spacing: -0.01em; }
+:lang(zh) .bio, :lang(ja) .bio, :lang(ko) .bio, :lang(zh) .prose p, :lang(ja) .prose p, :lang(ko) .prose p { line-height: 1.8; }
+
 /* ---------- Shared bits ---------- */
 
 .eyebrow {
@@ -324,6 +355,8 @@ section { padding: 88px 0; }
 
 @media (max-width: 560px) {
   .navLinks a { padding: 6px 8px; font-size: 14px; }
+  .navLinks a.hideSm { display: none; }
+  .lang summary { padding: 0 8px; }
   .wordmark .name { display: none; }
   .hero { padding: 56px 0 40px; }
   .sectionHead { flex-direction: column; align-items: start; gap: 4px; }

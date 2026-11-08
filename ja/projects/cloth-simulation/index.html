@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>布シミュレーション — Haocheng Li</title>
+  <meta name="description" content="UW CSE 457 のために Unity で開発した、リアルタイムの質点バネ系による布ソルバー。" />
+  <meta property="og:image" content="https://lihaocheng.me/og.png" />
+  <link rel="icon" href="../../../favicon.svg" />
+  <link rel="stylesheet" href="../../../styles.css" />
+  <script src="../../../site.js" defer></script>
+</head>
+<body>
+  <header class="nav">
+    <div class="shell">
+      <a class="wordmark" href="../../index.html" aria-label="ポートフォリオに戻る"><span class="mark">HL</span><span class="name">Haocheng Li</span></a>
+      <div class="navRight">
+        <nav class="navLinks" aria-label="プロジェクト"><a href="../../index.html#games">← すべての作品</a></nav>
+        <details class="lang">
+          <summary aria-label="言語">日本語</summary>
+          <ul>
+            <li><a href="../../../projects/cloth-simulation/index.html" hreflang="en" lang="en">English</a></li>
+            <li><a href="../../../zh/projects/cloth-simulation/index.html" hreflang="zh" lang="zh">中文</a></li>
+            <li><a href="index.html" hreflang="ja" lang="ja" aria-current="true">日本語</a></li>
+            <li><a href="../../../ko/projects/cloth-simulation/index.html" hreflang="ko" lang="ko">한국어</a></li>
+            <li><a href="../../../fr/projects/cloth-simulation/index.html" hreflang="fr" lang="fr">Français</a></li>
+          </ul>
+        </details>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <header class="detailHero shell">
+      <p class="eyebrow" data-reveal>コンピュータグラフィックス · UW CSE 457 最終課題</p>
+      <h1 data-reveal>布シミュレーション</h1>
+      <p class="lede" data-reveal>Unity で開発した、リアルタイムの質点バネ系による布ソルバーです。安定した積分、伸張制約、設定可能な固定点、衝突応答、インタラクティブな風を組み合わせています。</p>
+      <div class="heroActions" data-reveal>
+        <a class="btn primary" href="#solver">ソルバーを見る ↓</a>
+      </div>
+    </header>
+
+    <section class="shell" style="padding-top:0">
+      <figure style="margin:0" data-reveal>
+        <div class="frame"><img src="../../../cloth-wind.gif" alt="Unity で風向きと風の強さの変化に反応する布" /></div>
+        <figcaption class="caption">インタラクティブな風：風向きと強さをリアルタイムに操作できる帆のシーン。</figcaption>
+      </figure>
+    </section>
+
+    <section id="solver" class="shell split">
+      <div data-reveal>
+        <p class="eyebrow">ソルバー</p>
+        <h2>粒子から布へ。</h2>
+      </div>
+      <div class="prose" data-reveal>
+        <p>布を、3種類のバネで結ばれた粒子のグリッドとしてモデル化しました。構造バネは伸びに抵抗し、せん断バネは斜め方向の変形を安定させ、曲げバネは折れ曲がりに抵抗します。</p>
+        <p>毎フレーム、バネの力と全体にかかる力を蓄積し、固定されていない粒子を Verlet 積分で進め、衝突と過伸長の制約を解決したうえで、補正後の位置を描画用メッシュに書き戻します。</p>
+        <p>固定点のルールにより、複数の固定パターンに対応しています。ループには、プロジェクトの衝突処理と表面を考慮した風のユーティリティも組み込まれており、乱流による突風や、風向き・強さのリアルタイム操作が可能です。</p>
+        <dl class="specs">
+          <div><dt>開発環境</dt><dd>Unity / C#</dd></div>
+          <div><dt>基本モデル</dt><dd>質点バネ粒子システム</dd></div>
+          <div><dt>積分</dt><dd>Verlet 積分</dd></div>
+          <div><dt>応答</dt><dd>制約 / 衝突 / 風</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="systems">
+      <div class="shell">
+        <div class="sectionHead" data-reveal>
+          <div>
+            <p class="eyebrow">実装</p>
+            <h2>5つのシステム</h2>
+          </div>
+        </div>
+        <div class="features">
+          <article data-reveal><span class="num">01</span><h3>質点バネのトポロジー</h3><p>粒子グリッド全体に、伸びに抵抗する構造バネ、斜め方向を安定させるせん断バネ、曲げに抵抗する曲げバネを配置しています。</p></article>
+          <article data-reveal><span class="num">02</span><h3>フックの法則による力</h3><p>自然長、剛性、バネの向きをもとに、伸びたときは粒子を引き寄せ、縮んだときは押し離すバネの力を計算します。</p></article>
+          <article data-reveal><span class="num">03</span><h3>安定した運動と制約</h3><p>Verlet 積分に加え、非現実的な伸びが布を不安定にする前にバネを補正する過伸長制約を導入しています。</p></article>
+          <article data-reveal><span class="num">04</span><h3>3段階の物理ループ</h3><p>フレームごとのパイプライン：力の蓄積、積分と衝突処理、制約の解決、そしてメッシュ頂点の更新。</p></article>
+          <article data-reveal><span class="num">05</span><h3>設定可能なテストシーン</h3><p>複数の固定パターンに対応する固定点検出を備え、提供された衝突・風のヘルパーをシミュレーションループに統合しています。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="shell">
+      <div class="sectionHead" data-reveal>
+        <div>
+          <p class="eyebrow">シミュレーションシーン</p>
+          <h2>1つのソルバー、4つのストレステスト。</h2>
+        </div>
+      </div>
+      <div class="gallery">
+        <figure data-reveal>
+          <div class="frame"><img src="../../../cloth-four-corners.gif" alt="四隅を固定した状態で重力によりたわむ布" loading="lazy" /></div>
+          <figcaption><strong>四隅を固定</strong><span>重力によって中央が安定したハンモック状に垂れ下がり、バネのネットワークが伸びを抑えます。</span></figcaption>
+        </figure>
+        <figure data-reveal>
+          <div class="frame"><img src="../../../cloth-three-corners.gif" alt="三隅を固定した非対称な布のシミュレーション" loading="lazy" /></div>
+          <figcaption><strong>三隅を固定</strong><span>一つの角を解放すると非対称な張力と自由端が生まれ、制約がどのように伝わるかを検証できます。</span></figcaption>
+        </figure>
+        <figure data-reveal>
+          <div class="frame"><img src="../../../cloth-two-corners.gif" alt="二つの固定された角から垂れ下がるカーテン状の布" loading="lazy" /></div>
+          <figcaption><strong>二隅を固定</strong><span>上側の二隅を固定すると、布は垂れ下がり、折り重なり、揺れるカーテンになります。</span></figcaption>
+        </figure>
+        <figure data-reveal>
+          <div class="frame"><img src="../../../cloth-freefall-collision.gif" alt="落下した布が衝突応答によってモデルに覆いかぶさる様子" loading="lazy" /></div>
+          <figcaption><strong>自由落下と衝突</strong><span>固定されていない布がモデルの上に落ち、接触を解決して、すり抜けることなく覆いかぶさります。</span></figcaption>
+        </figure>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="shell">
+      <span>布シミュレーション</span>
+      <a href="../../index.html#games">← すべての作品に戻る</a>
+    </div>
+  </footer>
+</body>
+</html>

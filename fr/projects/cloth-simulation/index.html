@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simulation de tissu — Haocheng Li</title>
+  <meta name="description" content="Un solveur de tissu masse-ressort en temps réel, développé sous Unity pour UW CSE 457." />
+  <meta property="og:image" content="https://lihaocheng.me/og.png" />
+  <link rel="icon" href="../../../favicon.svg" />
+  <link rel="stylesheet" href="../../../styles.css" />
+  <script src="../../../site.js" defer></script>
+</head>
+<body>
+  <header class="nav">
+    <div class="shell">
+      <a class="wordmark" href="../../index.html" aria-label="Retour au portfolio"><span class="mark">HL</span><span class="name">Haocheng Li</span></a>
+      <div class="navRight">
+        <nav class="navLinks" aria-label="Projet"><a href="../../index.html#games">← Tous les projets</a></nav>
+        <details class="lang">
+          <summary aria-label="Langue">FR</summary>
+          <ul>
+            <li><a href="../../../projects/cloth-simulation/index.html" hreflang="en" lang="en">English</a></li>
+            <li><a href="../../../zh/projects/cloth-simulation/index.html" hreflang="zh" lang="zh">中文</a></li>
+            <li><a href="../../../ja/projects/cloth-simulation/index.html" hreflang="ja" lang="ja">日本語</a></li>
+            <li><a href="../../../ko/projects/cloth-simulation/index.html" hreflang="ko" lang="ko">한국어</a></li>
+            <li><a href="index.html" hreflang="fr" lang="fr" aria-current="true">Français</a></li>
+          </ul>
+        </details>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <header class="detailHero shell">
+      <p class="eyebrow" data-reveal>Infographie · Projet final UW CSE 457</p>
+      <h1 data-reveal>Simulation de tissu</h1>
+      <p class="lede" data-reveal>Un solveur de tissu masse-ressort en temps réel développé sous Unity, qui combine intégration stable, contraintes d’étirement, points d’ancrage configurables, gestion des collisions et vent interactif.</p>
+      <div class="heroActions" data-reveal>
+        <a class="btn primary" href="#solver">Découvrir le solveur ↓</a>
+      </div>
+    </header>
+
+    <section class="shell" style="padding-top:0">
+      <figure style="margin:0" data-reveal>
+        <div class="frame"><img src="../../../cloth-wind.gif" alt="Tissu réagissant aux variations de direction et d’intensité du vent dans Unity" /></div>
+        <figcaption class="caption">Vent interactif&nbsp;: scène de voile avec contrôle en temps réel de la direction et de l’intensité.</figcaption>
+      </figure>
+    </section>
+
+    <section id="solver" class="shell split">
+      <div data-reveal>
+        <p class="eyebrow">Le solveur</p>
+        <h2>Des particules au tissu.</h2>
+      </div>
+      <div class="prose" data-reveal>
+        <p>J’ai modélisé le tissu comme une grille de particules reliées par trois familles de ressorts. Les ressorts structurels résistent à l’étirement, les ressorts de cisaillement stabilisent les déformations diagonales et les ressorts de flexion résistent à la courbure.</p>
+        <p>À chaque frame, le solveur accumule les forces des ressorts et les forces globales, fait avancer les particules non fixées par intégration de Verlet, résout les collisions et les contraintes de sur-étirement, puis réécrit les positions corrigées dans le maillage affiché.</p>
+        <p>Des règles de points fixes permettent plusieurs configurations d’ancrage. La boucle intègre également les utilitaires de collision et de vent sensible à la surface fournis avec le projet, notamment des rafales turbulentes et un contrôle en temps réel de la direction et de l’intensité.</p>
+        <dl class="specs">
+          <div><dt>Technologies</dt><dd>Unity / C#</dd></div>
+          <div><dt>Modèle</dt><dd>Système de particules masse-ressort</dd></div>
+          <div><dt>Intégration</dt><dd>Intégration de Verlet</dd></div>
+          <div><dt>Réponse</dt><dd>Contraintes / collisions / vent</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="systems">
+      <div class="shell">
+        <div class="sectionHead" data-reveal>
+          <div>
+            <p class="eyebrow">Implémentation</p>
+            <h2>Cinq systèmes</h2>
+          </div>
+        </div>
+        <div class="features">
+          <article data-reveal><span class="num">01</span><h3>Topologie masse-ressort</h3><p>Ressorts structurels contre l’étirement, ressorts de cisaillement pour la stabilité diagonale et ressorts de flexion contre la courbure, sur l’ensemble de la grille de particules.</p></article>
+          <article data-reveal><span class="num">02</span><h3>Forces selon la loi de Hooke</h3><p>Les forces des ressorts rapprochent les particules lorsqu’elles sont étirées et les écartent lorsqu’elles sont comprimées, en fonction de la longueur au repos, de la raideur et de la direction du ressort.</p></article>
+          <article data-reveal><span class="num">03</span><h3>Mouvement stable et contraintes</h3><p>Intégration de Verlet et contrainte de sur-étirement qui corrige les ressorts avant qu’un étirement irréaliste ne déstabilise le tissu.</p></article>
+          <article data-reveal><span class="num">04</span><h3>Boucle physique en trois phases</h3><p>Pipeline par frame&nbsp;: accumulation des forces, intégration et gestion des collisions, résolution des contraintes, puis mise à jour des sommets du maillage.</p></article>
+          <article data-reveal><span class="num">05</span><h3>Scènes de test configurables</h3><p>Détection des points fixes pour plusieurs schémas d’ancrage, avec les utilitaires de collision et de vent fournis intégrés à la boucle de simulation.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="shell">
+      <div class="sectionHead" data-reveal>
+        <div>
+          <p class="eyebrow">Scènes de simulation</p>
+          <h2>Un solveur. Quatre tests de résistance.</h2>
+        </div>
+      </div>
+      <div class="gallery">
+        <figure data-reveal>
+          <div class="frame"><img src="../../../cloth-four-corners.gif" alt="Tissu s’affaissant sous l’effet de la gravité, les quatre coins fixés" loading="lazy" /></div>
+          <figcaption><strong>Quatre coins fixés</strong><span>La gravité tire le centre vers une forme de hamac stable, tandis que le réseau de ressorts limite l’étirement.</span></figcaption>
+        </figure>
+        <figure data-reveal>
+          <div class="frame"><img src="../../../cloth-three-corners.gif" alt="Simulation de tissu asymétrique avec trois coins fixés" loading="lazy" /></div>
+          <figcaption><strong>Trois coins fixés</strong><span>Libérer un coin crée une tension asymétrique et un bord libre, ce qui permet de tester la propagation des contraintes.</span></figcaption>
+        </figure>
+        <figure data-reveal>
+          <div class="frame"><img src="../../../cloth-two-corners.gif" alt="Tissu suspendu par deux coins fixés, à la manière d’un rideau" loading="lazy" /></div>
+          <figcaption><strong>Deux coins fixés</strong><span>En fixant les coins supérieurs, le tissu devient un rideau qui pend, se plisse et se balance.</span></figcaption>
+        </figure>
+        <figure data-reveal>
+          <div class="frame"><img src="../../../cloth-freefall-collision.gif" alt="Tissu tombant et se drapant sur un modèle grâce à la gestion des collisions" loading="lazy" /></div>
+          <figcaption><strong>Chute libre et collision</strong><span>Le tissu libre tombe sur le modèle, résout le contact et s’y drape sans le traverser.</span></figcaption>
+        </figure>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="shell">
+      <span>Simulation de tissu</span>
+      <a href="../../index.html#games">← Retour à tous les projets</a>
+    </div>
+  </footer>
+</body>
+</html>

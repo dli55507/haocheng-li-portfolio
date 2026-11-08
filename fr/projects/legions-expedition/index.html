@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Legion’s Expedition — Haocheng Li</title>
+  <meta name="description" content="Legion's Expedition — un jeu de survie inspiré de l’auto-chess, développé sous Godot pour le projet de fin d’études UW CSE." />
+  <meta property="og:image" content="https://lihaocheng.me/og.png" />
+  <link rel="icon" href="../../../favicon.svg" />
+  <link rel="stylesheet" href="../../../styles.css" />
+  <script src="../../../site.js" defer></script>
+</head>
+<body>
+  <header class="nav">
+    <div class="shell">
+      <a class="wordmark" href="../../index.html" aria-label="Retour au portfolio"><span class="mark">HL</span><span class="name">Haocheng Li</span></a>
+      <div class="navRight">
+        <nav class="navLinks" aria-label="Projet"><a href="../../index.html#games">← Tous les projets</a></nav>
+        <details class="lang">
+          <summary aria-label="Langue">FR</summary>
+          <ul>
+            <li><a href="../../../projects/legions-expedition/index.html" hreflang="en" lang="en">English</a></li>
+            <li><a href="../../../zh/projects/legions-expedition/index.html" hreflang="zh" lang="zh">中文</a></li>
+            <li><a href="../../../ja/projects/legions-expedition/index.html" hreflang="ja" lang="ja">日本語</a></li>
+            <li><a href="../../../ko/projects/legions-expedition/index.html" hreflang="ko" lang="ko">한국어</a></li>
+            <li><a href="index.html" hreflang="fr" lang="fr" aria-current="true">Français</a></li>
+          </ul>
+        </details>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <header class="detailHero shell">
+      <p class="eyebrow" data-reveal>Projet de jeu · Projet de fin d’études UW CSE</p>
+      <h1 data-reveal>Legion’s Expedition</h1>
+      <p class="lede" data-reveal>Un jeu de survie inspiré de l’auto-chess&nbsp;: bâtir une légion, découvrir les synergies de son escouade et la maintenir en vie sous une pression croissante.</p>
+      <div class="heroActions" data-reveal>
+        <a class="btn primary" href="https://haochl5.github.io/legions-expedition-godot/" target="_blank" rel="noreferrer">Jouer à la version en ligne ↗</a>
+        <a class="btn" href="#showcase">Voir la vidéo de présentation ↓</a>
+      </div>
+    </header>
+
+    <section id="showcase" class="shell" style="padding-top:0">
+      <div class="frame" data-reveal>
+        <video controls playsinline preload="metadata" aria-label="Vidéo de présentation du gameplay de Legion's Expedition">
+          <source src="../../../legions-expedition-showcase.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </section>
+
+    <section class="shell split">
+      <div data-reveal>
+        <p class="eyebrow">Le concept</p>
+        <h2>Menez l’escouade. Façonnez la partie.</h2>
+      </div>
+      <div class="prose" data-reveal>
+        <p>Contrairement aux jeux de survie classiques, Legion’s Expedition ne fait pas du joueur un combattant solitaire. Vous incarnez un commandant à la tête d’une escouade de champions autonomes.</p>
+        <p>Vous vous concentrez sur les déplacements tactiques, l’esquive et la précision du tir, tandis que les unités recrutées repèrent et attaquent les ennemis grâce à des comportements d’IA spécialisés et à des compétences uniques.</p>
+        <p>À mesure que les vagues se durcissent, vous recrutez de nouvelles unités, découvrez des combinaisons puissantes et fusionnez trois champions identiques en une version plus forte, transformant une troupe disparate en une force de combat coordonnée.</p>
+        <dl class="specs">
+          <div><dt>Technologies</dt><dd>Godot / GDScript</dd></div>
+          <div><dt>Axes principaux</dt><dd>Combat d’escouade / systèmes procéduraux</dd></div>
+          <div><dt>Instrumentation</dt><dd>API d’analytique backend</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="shell split">
+      <div data-reveal>
+        <p class="eyebrow">Système de recrutement</p>
+        <h2>Choisissez un rôle. Bâtissez une formation.</h2>
+        <p style="margin-top:16px;color:var(--text-2);font-size:17px">Recruter, relancer, déployer ou verrouiller la boutique&nbsp;: chaque décision façonne la ligne de front de l’escouade, son profil de dégâts, les synergies entre champions et les fusions possibles.</p>
+      </div>
+      <figure style="margin:0" data-reveal>
+        <div class="frame"><img src="../../../legions-expedition-recruitment.png" alt="Boutique de recrutement proposant les champions Ranger, Assassin et Squire" loading="lazy" /></div>
+        <figcaption class="caption">Le recrutement de champions fait de chaque pause entre les vagues une décision de composition d’escouade.</figcaption>
+      </figure>
+    </section>
+
+    <section class="shell">
+      <div class="sectionHead" data-reveal>
+        <div>
+          <p class="eyebrow">Combats de boss</p>
+          <h2>Trois boss, trois schémas d’attaque</h2>
+        </div>
+      </div>
+      <div class="frame" data-reveal>
+        <video controls playsinline preload="metadata" aria-label="Vidéo de présentation des combats de boss de Legion's Expedition">
+          <source src="../../../legions-expedition-boss-fights.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <p class="caption">Les combats de boss mettent à l’épreuve les déplacements, le placement et la composition de l’escouade grâce à des schémas d’attaque conçus individuellement.</p>
+    </section>
+
+    <section class="systems">
+      <div class="shell">
+        <div class="sectionHead" data-reveal>
+          <div>
+            <p class="eyebrow">Systèmes et fonctionnalités</p>
+            <h2>Six piliers</h2>
+          </div>
+        </div>
+        <div class="features">
+          <article data-reveal><span class="num">01</span><h3>Survie menée en escouade</h3><p>Inspiré de Vampire Survivors et de l’auto-chess, le jeu fait passer la formule du survivor d’un combattant solitaire au commandement d’une escouade grandissante de champions autonomes.</p></article>
+          <article data-reveal><span class="num">02</span><h3>Champions, ennemis et boss</h3><p>Plus de six champions apportent chacun des pouvoirs distincts à l’escouade, tandis que plus de six types de monstres et trois boss ont leurs propres schémas d’attaque.</p></article>
+          <article data-reveal><span class="num">03</span><h3>Progression par fusion de trois</h3><p>Trois champions identiques fusionnent en une version plus puissante, une règle familière de l’auto-chess qui renforce l’escouade face à des vagues toujours plus dangereuses.</p></article>
+          <article data-reveal><span class="num">04</span><h3>Cartes assemblées procéduralement</h3><p>Chaque partie recombine tuiles de carte et éléments de décor selon des règles d’agencement, pour des champs de bataille variés sans sacrifier la lisibilité des chemins.</p></article>
+          <article data-reveal><span class="num">05</span><h3>Difficulté adaptative cachée</h3><p>Un système de difficulté dynamique invisible, inspiré de la série Resident Evil, ajuste la pression au fil de la partie.</p></article>
+          <article data-reveal><span class="num">06</span><h3>Télémétrie des joueurs en temps réel</h3><p>Des API d’analytique backend enregistrent en temps réel le temps de survie, la progression et d’autres métriques de jeu, au service de l’évaluation et de l’itération sur le design.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="shell">
+      <div class="split" style="margin-bottom:40px">
+        <div data-reveal>
+          <p class="eyebrow">Télémétrie et itération</p>
+          <h2>Mesurer la partie. Affiner le jeu.</h2>
+        </div>
+        <div class="prose" data-reveal>
+          <p>Les API d’analytique intégrées envoient à Talo, en temps réel, les données de session, de progression et de survie. Ces enregistrements alimentent les rapports académiques et permettent de comparer l’effet des changements d’équilibrage sur le comportement des joueurs d’une itération à l’autre.</p>
+        </div>
+      </div>
+      <div class="gallery">
+        <figure data-reveal>
+          <div class="frame"><img src="../../../legions-expedition-talo-overview.png" alt="Tableau de bord Talo affichant les données de joueurs, de sessions et d’événements" loading="lazy" /></div>
+          <figcaption><span>Vue d’ensemble de l’activité sur Talo&nbsp;: 134 nouveaux joueurs, 12 joueurs récurrents, 178 sessions, 1&nbsp;445 événements et 55 émetteurs d’événements uniques.</span></figcaption>
+        </figure>
+        <figure data-reveal>
+          <div class="frame"><img src="../../../legions-expedition-survival-curve.png" alt="Courbes de survie des joueurs comparant les itérations trois et quatre" loading="lazy" /></div>
+          <figcaption><span>Les courbes de survie comparent l’itération 3 (n=38) à l’itération 4 (n=95), transformant la télémétrie brute en éléments concrets pour les décisions d’équilibrage.</span></figcaption>
+        </figure>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="shell">
+      <span>Legion’s Expedition</span>
+      <a href="../../index.html#games">← Retour à tous les projets</a>
+    </div>
+  </footer>
+</body>
+</html>

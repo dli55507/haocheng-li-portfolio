@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>布料模拟 — 李浩成</title>
+  <meta name="description" content="使用 Unity 为 UW CSE 457 课程开发的实时质点–弹簧布料求解器。" />
+  <meta property="og:image" content="https://lihaocheng.me/og.png" />
+  <link rel="icon" href="../../../favicon.svg" />
+  <link rel="stylesheet" href="../../../styles.css" />
+  <script src="../../../site.js" defer></script>
+</head>
+<body>
+  <header class="nav">
+    <div class="shell">
+      <a class="wordmark" href="../../index.html" aria-label="返回作品集"><span class="mark">HL</span><span class="name">Haocheng Li</span></a>
+      <div class="navRight">
+        <nav class="navLinks" aria-label="项目"><a href="../../index.html#games">← 全部作品</a></nav>
+        <details class="lang">
+          <summary aria-label="语言">中文</summary>
+          <ul>
+            <li><a href="../../../projects/cloth-simulation/index.html" hreflang="en" lang="en">English</a></li>
+            <li><a href="index.html" hreflang="zh" lang="zh" aria-current="true">中文</a></li>
+            <li><a href="../../../ja/projects/cloth-simulation/index.html" hreflang="ja" lang="ja">日本語</a></li>
+            <li><a href="../../../ko/projects/cloth-simulation/index.html" hreflang="ko" lang="ko">한국어</a></li>
+            <li><a href="../../../fr/projects/cloth-simulation/index.html" hreflang="fr" lang="fr">Français</a></li>
+          </ul>
+        </details>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <header class="detailHero shell">
+      <p class="eyebrow" data-reveal>计算机图形学 · UW CSE 457 期末作品</p>
+      <h1 data-reveal>布料模拟</h1>
+      <p class="lede" data-reveal>一个基于 Unity 的实时质点–弹簧布料求解器，结合了稳定的数值积分、拉伸约束、可配置的固定点、碰撞响应和交互式风场。</p>
+      <div class="heroActions" data-reveal>
+        <a class="btn primary" href="#solver">了解求解器 ↓</a>
+      </div>
+    </header>
+
+    <section class="shell" style="padding-top:0">
+      <figure style="margin:0" data-reveal>
+        <div class="frame"><img src="../../../cloth-wind.gif" alt="Unity 中布料随风向和风力变化而飘动" /></div>
+        <figcaption class="caption">交互式风场：船帆场景，可实时调节风向和风力。</figcaption>
+      </figure>
+    </section>
+
+    <section id="solver" class="shell split">
+      <div data-reveal>
+        <p class="eyebrow">求解器</p>
+        <h2>从质点到织物。</h2>
+      </div>
+      <div class="prose" data-reveal>
+        <p>我将布料建模为由三类弹簧连接的质点网格：结构弹簧抵抗拉伸，剪切弹簧稳定对角方向的形变，弯曲弹簧抵抗折弯。</p>
+        <p>每一帧都会累积弹簧力和全局力，用 Verlet 积分推进非固定质点，处理碰撞与过度拉伸约束，再把修正后的位置写回用于渲染的网格。</p>
+        <p>固定点规则支持多种固定配置。模拟循环还集成了项目提供的碰撞工具和感知表面的风场工具，包括湍流阵风以及风向、风力的实时调节。</p>
+        <dl class="specs">
+          <div><dt>开发工具</dt><dd>Unity / C#</dd></div>
+          <div><dt>核心模型</dt><dd>质点–弹簧粒子系统</dd></div>
+          <div><dt>积分方法</dt><dd>Verlet 积分</dd></div>
+          <div><dt>响应</dt><dd>约束 / 碰撞 / 风场</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="systems">
+      <div class="shell">
+        <div class="sectionHead" data-reveal>
+          <div>
+            <p class="eyebrow">实现</p>
+            <h2>五个系统</h2>
+          </div>
+        </div>
+        <div class="features">
+          <article data-reveal><span class="num">01</span><h3>质点–弹簧拓扑</h3><p>在整个质点网格上，用结构弹簧抵抗拉伸，剪切弹簧保持对角稳定，弯曲弹簧抵抗折弯。</p></article>
+          <article data-reveal><span class="num">02</span><h3>胡克定律受力</h3><p>根据静止长度、刚度和弹簧方向计算弹簧力：拉伸时将质点拉近，压缩时将其推开。</p></article>
+          <article data-reveal><span class="num">03</span><h3>稳定运动与约束</h3><p>采用 Verlet 积分，并加入过度拉伸约束，在不真实的拉伸破坏布料稳定性之前修正弹簧。</p></article>
+          <article data-reveal><span class="num">04</span><h3>三阶段物理循环</h3><p>逐帧管线：受力累积、积分与碰撞处理、约束求解，最后更新网格顶点。</p></article>
+          <article data-reveal><span class="num">05</span><h3>可配置测试场景</h3><p>通过固定点检测支持多种固定方式，并将课程提供的碰撞和风场辅助工具集成进模拟循环。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="shell">
+      <div class="sectionHead" data-reveal>
+        <div>
+          <p class="eyebrow">模拟场景</p>
+          <h2>一个求解器，四项压力测试。</h2>
+        </div>
+      </div>
+      <div class="gallery">
+        <figure data-reveal>
+          <div class="frame"><img src="../../../cloth-four-corners.gif" alt="四角固定的布料在重力作用下下垂" loading="lazy" /></div>
+          <figcaption><strong>固定四角</strong><span>重力将布料中央拉成稳定的吊床形状，弹簧网络则限制了拉伸。</span></figcaption>
+        </figure>
+        <figure data-reveal>
+          <div class="frame"><img src="../../../cloth-three-corners.gif" alt="三角固定的非对称布料模拟" loading="lazy" /></div>
+          <figcaption><strong>固定三角</strong><span>松开一角后产生非对称张力和一条自由边，用于测试约束的传递效果。</span></figcaption>
+        </figure>
+        <figure data-reveal>
+          <div class="frame"><img src="../../../cloth-two-corners.gif" alt="由两个固定角悬挂、形似窗帘的布料" loading="lazy" /></div>
+          <figcaption><strong>固定两角</strong><span>固定上方两角后，布料变成一块会垂坠、起褶和摆动的窗帘。</span></figcaption>
+        </figure>
+        <figure data-reveal>
+          <div class="frame"><img src="../../../cloth-freefall-collision.gif" alt="布料下落并通过碰撞响应覆盖在模型上" loading="lazy" /></div>
+          <figcaption><strong>自由下落与碰撞</strong><span>未固定的布料落到模型上，处理接触后自然覆盖其表面，不会穿模。</span></figcaption>
+        </figure>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="shell">
+      <span>布料模拟</span>
+      <a href="../../index.html#games">← 返回全部作品</a>
+    </div>
+  </footer>
+</body>
+</html>
