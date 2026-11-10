@@ -134,10 +134,6 @@
             <p>紙は 1 枚ずつ、<strong>風下側の辺</strong>を蝶番にして回転しながら持ち上がり、34° までめくれてから離れます。空中では速度が指数的な追従で目標の風速へ近づき、落ち葉のような揺れ（±0.3 m、周期 2.1 s）が傾きと振れを連動させるので、紙は曲がるたびにその方向へ身を傾けます。</p>
             <p>風が届く前は、減衰の弱いバネで角がはためきます。壁の拘束によってポスターは壁の手前にとどまり、壁面に沿って滑り落ちるので、壁を突き抜けることはありません。</p>
           </div>
-          <dl class="specs">
-            <div><dt>突風 1 回あたり</dt><dd>15–17 枚、すべて 0.22–2.33 s で画面外へ</dd></div>
-            <div><dt>壁へのめり込み</dt><dd>0.7–2.6 m → 0</dd></div>
-          </dl>
         </div>
         <figure style="margin:0" data-reveal>
           <div class="frame"><video data-autoplay muted loop playsinline preload="metadata" poster="../../../media/light-as-wind/paper.jpg" aria-label="風が吹く前の、浜辺の壁に貼られたポスター"><source src="../../../media/light-as-wind/paper.mp4" type="video/mp4" /></video></div>
@@ -181,10 +177,6 @@
             <p>カニは振り子で、ツタはそのハサミに追従するだけです。2.5D のゲームでは純粋な 3D 距離だと掴み損ねが続いたため、掴み判定は画面の平面上で測っています。プレイヤーは振りと同じ位相でしか漕げず、エネルギーの上限（最大 72°）によって、長いツタでもカニが画面外へ放り出されないようにしています。</p>
             <p>各ツタは 18 ノードの Verlet ロープで、拘束の反復 8 回、水の抵抗、ゆっくりした揺れを備えています。ハサミより下のノードはカニの甲羅の外へ押し出されるので、めり込むことはありません。</p>
           </div>
-          <dl class="specs">
-            <div><dt>平均フレーム時間（Level 7/8/9）</dt><dd>6.4/7.7/8.5 → 1.7/2.6/2.7 ms</dd></div>
-            <div><dt>16.7 ms を超えたフレーム数</dt><dd>89/165/166 → 4/0/0</dd></div>
-          </dl>
         </div>
         <figure style="margin:0" data-reveal>
           <div class="frame"><video data-autoplay muted loop playsinline preload="metadata" aria-label="ツタからツタへと揺れて渡るカニ"><source src="../../../media/light-as-wind/vines.mp4" type="video/mp4" /></video></div>
@@ -199,10 +191,6 @@
         <div class="prose" data-reveal>
           <p>このゲームにはインポートしたメッシュが一切ないため、破壊とは生成されたジオメトリを切ることを意味します。Level 06 の崩れるトンネルでは、洞窟の天井が自らを砕きます。頂点を溶接し、<strong>union-find</strong> で閉じた岩ごとにまとめ、長い岩はランダムな平面でクリップし（<strong>Sutherland–Hodgman</strong>、すべての属性を補間）、各切断面をファンで塞ぐことで、すべての破片が閉じたソリッドのまま保たれます。</p>
           <p>切断処理はフレームあたり 4 ms の予算を持つコルーチンとして動き、プレイヤーがまだ 60 m 手前にいるうちに始まります。610 個の岩が 140–220 フレームかけて 169 個の破片になります。小さなプロップは、隣り合う破片同士で継ぎ目を共有するあらかじめ切り分けたピースで壊れ、破片は物理エンジンをまったく通さないため、コストはフレームあたり約 0.013 ms です。</p>
-          <dl class="specs">
-            <div><dt>トンネル崩落</dt><dd>岩 610 個 → 破片 169 個</dd></div>
-            <div><dt>プロップ破壊時の最悪フレーム</dt><dd>14.6 → 3.3 ms</dd></div>
-          </dl>
         </div>
       </div>
     </section>

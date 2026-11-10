@@ -134,10 +134,6 @@
             <p>Chaque feuille se soulève en pivotant autour de son <strong>bord sous le vent</strong>, qui sert de charnière, se décolle jusqu’à 34°, puis se détache. En l’air, sa vitesse tend vers un vent cible par une poursuite exponentielle, et un balancement de feuille morte (±0,3&nbsp;m, période de 2,1&nbsp;s) couple l’inclinaison à l’oscillation pour que la feuille s’incline dans chaque virage.</p>
             <p>Avant l’arrivée du vent, les coins frémissent sur un ressort sous-amorti. Une contrainte de mur maintient les affiches devant le mur et les fait glisser le long de sa surface, de sorte qu’elles ne le traversent jamais.</p>
           </div>
-          <dl class="specs">
-            <div><dt>Par rafale</dt><dd>15–17 feuilles, toutes hors écran en 0,22–2,33&nbsp;s</dd></div>
-            <div><dt>Traversée du mur</dt><dd>0,7–2,6&nbsp;m → 0</dd></div>
-          </dl>
         </div>
         <figure style="margin:0" data-reveal>
           <div class="frame"><video data-autoplay muted loop playsinline preload="metadata" poster="../../../media/light-as-wind/paper.jpg" aria-label="Affiches sur le mur du rivage avant le vent"><source src="../../../media/light-as-wind/paper.mp4" type="video/mp4" /></video></div>
@@ -181,10 +177,6 @@
             <p>Le crabe est un pendule&nbsp;; la liane ne fait que suivre sa pince. La prise est évaluée dans le plan de l’image, car la distance 3D pure ratait souvent dans un jeu en 2,5D. Le joueur ne peut donner de l’élan qu’en phase avec le balancement, et un plafond d’énergie (72° max) empêche les longues lianes de projeter le crabe hors du cadre.</p>
             <p>Chaque liane est une corde de Verlet à 18 nœuds, avec 8 passes de contraintes, une traînée dans l’eau et un lent balancement&nbsp;; les nœuds situés sous la pince sont repoussés hors de la carapace du crabe pour qu’elle ne la traverse jamais.</p>
           </div>
-          <dl class="specs">
-            <div><dt>Frame moyenne, niveaux 7/8/9</dt><dd>6,4/7,7/8,5 → 1,7/2,6/2,7&nbsp;ms</dd></div>
-            <div><dt>Frames au-delà de 16,7&nbsp;ms</dt><dd>89/165/166 → 4/0/0</dd></div>
-          </dl>
         </div>
         <figure style="margin:0" data-reveal>
           <div class="frame"><video data-autoplay muted loop playsinline preload="metadata" aria-label="Le crabe se balance d’une liane à l’autre"><source src="../../../media/light-as-wind/vines.mp4" type="video/mp4" /></video></div>
@@ -199,10 +191,6 @@
         <div class="prose" data-reveal>
           <p>Aucun élément du jeu n’est un mesh importé&nbsp;: détruire, c’est donc découper de la géométrie générée. Pour le tunnel qui s’effondre au niveau 06, la voûte de la grotte se brise d’elle-même&nbsp;: les sommets sont soudés et regroupés en rochers fermés grâce à un <strong>union-find</strong>, les rochers allongés sont découpés par des plans aléatoires (<strong>Sutherland–Hodgman</strong>, avec interpolation de tous les attributs), et chaque coupe est refermée par un éventail de triangles pour que chaque fragment reste un solide fermé.</p>
           <p>La découpe s’exécute dans une coroutine avec un budget de 4&nbsp;ms par frame, et démarre alors que le joueur est encore à 60&nbsp;m&nbsp;: 610 rochers deviennent 169 fragments en 140–220 frames. Les objets plus petits se brisent en morceaux prédécoupés dont les jointures sont partagées entre voisins, et les éclats se passent entièrement du moteur physique — environ 0,013&nbsp;ms par frame.</p>
-          <dl class="specs">
-            <div><dt>Effondrement du tunnel</dt><dd>610 rochers → 169 fragments</dd></div>
-            <div><dt>Pire frame lors d’un bris d’objet</dt><dd>14,6 → 3,3&nbsp;ms</dd></div>
-          </dl>
         </div>
       </div>
     </section>

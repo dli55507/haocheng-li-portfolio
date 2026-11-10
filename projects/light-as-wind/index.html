@@ -134,10 +134,6 @@
             <p>Each sheet lifts by rotating about its <strong>downwind edge</strong> as a hinge, peels up to 34°, then lets go. In the air its velocity eases toward a target wind with an exponential chase, and a falling-leaf sway (±0.3 m, 2.1 s period) couples tilt to swing so the sheet leans into each turn.</p>
             <p>Before the wind arrives, corners flutter on an underdamped spring. A wall constraint holds posters in front of the wall and slides them off its face, so they never pass through it.</p>
           </div>
-          <dl class="specs">
-            <div><dt>Per gust</dt><dd>15–17 sheets, all off-screen in 0.22–2.33 s</dd></div>
-            <div><dt>Wall clipping</dt><dd>0.7–2.6 m → 0</dd></div>
-          </dl>
         </div>
         <figure style="margin:0" data-reveal>
           <div class="frame"><video data-autoplay muted loop playsinline preload="metadata" poster="../../media/light-as-wind/paper.jpg" aria-label="Posters on the shore wall before the wind"><source src="../../media/light-as-wind/paper.mp4" type="video/mp4" /></video></div>
@@ -181,10 +177,6 @@
             <p>The crab is a pendulum; the vine just follows its claw. Grabbing is measured in the picture plane, because pure 3D distance kept missing in a 2.5D game. The player can pump only in phase with the swing, and an energy cap (72° max) keeps long vines from flinging the crab out of frame.</p>
             <p>Each vine is an 18-node Verlet rope with 8 constraint passes, water drag, and slow sway; the nodes below the claw are pushed out of the crab’s shell so it never clips.</p>
           </div>
-          <dl class="specs">
-            <div><dt>Avg frame, Levels 7/8/9</dt><dd>6.4/7.7/8.5 → 1.7/2.6/2.7 ms</dd></div>
-            <div><dt>Frames over 16.7 ms</dt><dd>89/165/166 → 4/0/0</dd></div>
-          </dl>
         </div>
         <figure style="margin:0" data-reveal>
           <div class="frame"><video data-autoplay muted loop playsinline preload="metadata" aria-label="The crab swinging between vines"><source src="../../media/light-as-wind/vines.mp4" type="video/mp4" /></video></div>
@@ -199,10 +191,6 @@
         <div class="prose" data-reveal>
           <p>Nothing in the game is an imported mesh, so destruction means cutting generated geometry. For Level 06’s collapsing tunnel, the cave roof breaks itself: vertices are welded and grouped into closed rocks with <strong>union-find</strong>, long rocks are clipped against random planes (<strong>Sutherland–Hodgman</strong>, all attributes interpolated), and each cut is capped with a fan so every fragment stays a closed solid.</p>
           <p>The cut runs as a coroutine with a 4 ms per-frame budget, starting while the player is still 60 m away: 610 rocks become 169 fragments over 140–220 frames. Smaller props break with pre-cut pieces whose seams are shared between neighbours, and the shards skip the physics engine entirely — about 0.013 ms per frame.</p>
-          <dl class="specs">
-            <div><dt>Tunnel collapse</dt><dd>610 rocks → 169 fragments</dd></div>
-            <div><dt>Prop smash worst frame</dt><dd>14.6 → 3.3 ms</dd></div>
-          </dl>
         </div>
       </div>
     </section>
