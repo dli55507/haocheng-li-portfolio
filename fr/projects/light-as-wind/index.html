@@ -123,7 +123,7 @@
           <p class="eyebrow">Systèmes</p>
           <h2>Physique, shaders &amp; destruction</h2>
         </div>
-        <p class="count">05 points forts</p>
+        <p class="count">04 points forts</p>
       </div>
 
       <div class="split" style="margin-bottom:72px">
@@ -169,7 +169,7 @@
         </figure>
       </div>
 
-      <div class="split" style="margin-bottom:72px">
+      <div class="split">
         <div data-reveal>
           <p class="eyebrow">04 · Simulation</p>
           <h3 style="font-size:26px;margin-top:8px">Le crabe qui se balance aux lianes</h3>
@@ -183,16 +183,6 @@
         </figure>
       </div>
 
-      <div class="split">
-        <div data-reveal>
-          <p class="eyebrow">05 · Destruction</p>
-          <h3 style="font-size:26px;margin-top:8px">Découper le niveau en morceaux</h3>
-        </div>
-        <div class="prose" data-reveal>
-          <p>Aucun élément du jeu n’est un mesh importé&nbsp;: détruire, c’est donc découper de la géométrie générée. Pour le tunnel qui s’effondre au niveau 06, la voûte de la grotte se brise d’elle-même&nbsp;: les sommets sont soudés et regroupés en rochers fermés grâce à un <strong>union-find</strong>, les rochers allongés sont découpés par des plans aléatoires (<strong>Sutherland–Hodgman</strong>, avec interpolation de tous les attributs), et chaque coupe est refermée par un éventail de triangles pour que chaque fragment reste un solide fermé.</p>
-          <p>La découpe s’exécute dans une coroutine avec un budget de 4&nbsp;ms par frame, et démarre alors que le joueur est encore à 60&nbsp;m&nbsp;: 610 rochers deviennent 169 fragments en 140–220 frames. Les objets plus petits se brisent en morceaux prédécoupés dont les jointures sont partagées entre voisins, et les éclats se passent entièrement du moteur physique — environ 0,013&nbsp;ms par frame.</p>
-        </div>
-      </div>
     </section>
   </main>
 

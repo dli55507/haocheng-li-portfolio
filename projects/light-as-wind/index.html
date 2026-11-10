@@ -123,7 +123,7 @@
           <p class="eyebrow">Systems</p>
           <h2>Physics, shaders &amp; destruction</h2>
         </div>
-        <p class="count">05 highlights</p>
+        <p class="count">04 highlights</p>
       </div>
 
       <div class="split" style="margin-bottom:72px">
@@ -169,7 +169,7 @@
         </figure>
       </div>
 
-      <div class="split" style="margin-bottom:72px">
+      <div class="split">
         <div data-reveal>
           <p class="eyebrow">04 · Simulation</p>
           <h3 style="font-size:26px;margin-top:8px">The crab’s vine swing</h3>
@@ -183,16 +183,6 @@
         </figure>
       </div>
 
-      <div class="split">
-        <div data-reveal>
-          <p class="eyebrow">05 · Destruction</p>
-          <h3 style="font-size:26px;margin-top:8px">Cutting the level into pieces</h3>
-        </div>
-        <div class="prose" data-reveal>
-          <p>Nothing in the game is an imported mesh, so destruction means cutting generated geometry. For Level 06’s collapsing tunnel, the cave roof breaks itself: vertices are welded and grouped into closed rocks with <strong>union-find</strong>, long rocks are clipped against random planes (<strong>Sutherland–Hodgman</strong>, all attributes interpolated), and each cut is capped with a fan so every fragment stays a closed solid.</p>
-          <p>The cut runs as a coroutine with a 4 ms per-frame budget, starting while the player is still 60 m away: 610 rocks become 169 fragments over 140–220 frames. Smaller props break with pre-cut pieces whose seams are shared between neighbours, and the shards skip the physics engine entirely — about 0.013 ms per frame.</p>
-        </div>
-      </div>
     </section>
   </main>
 

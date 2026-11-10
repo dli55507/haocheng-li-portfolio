@@ -123,7 +123,7 @@
           <p class="eyebrow">系统</p>
           <h2>物理、着色器与破碎</h2>
         </div>
-        <p class="count">05 项亮点</p>
+        <p class="count">04 项亮点</p>
       </div>
 
       <div class="split" style="margin-bottom:72px">
@@ -169,7 +169,7 @@
         </figure>
       </div>
 
-      <div class="split" style="margin-bottom:72px">
+      <div class="split">
         <div data-reveal>
           <p class="eyebrow">04 · 模拟</p>
           <h3 style="font-size:26px;margin-top:8px">螃蟹的藤蔓摆荡</h3>
@@ -183,16 +183,6 @@
         </figure>
       </div>
 
-      <div class="split">
-        <div data-reveal>
-          <p class="eyebrow">05 · 破碎</p>
-          <h3 style="font-size:26px;margin-top:8px">把关卡切成碎块</h3>
-        </div>
-        <div class="prose" data-reveal>
-          <p>游戏中没有任何导入的网格，所以破碎意味着切割程序生成的几何体。在第 06 关坍塌的隧道中，洞顶会自行碎裂：先焊接顶点，再用 <strong>union-find（并查集）</strong>归组成封闭的岩块；较长的岩块用随机平面裁切（<strong>Sutherland–Hodgman</strong>，所有顶点属性都会插值），每个切口再用扇形封口，确保每块碎片都是封闭实体。</p>
-          <p>切割以协程运行，每帧预算 4 ms，在玩家距离还有 60 m 时就开始：610 块岩石在 140–220 帧内变成 169 块碎片。较小的道具则使用预先切好的碎块，相邻碎块共享接缝；碎片完全绕开物理引擎——每帧仅约 0.013 ms。</p>
-        </div>
-      </div>
     </section>
   </main>
 

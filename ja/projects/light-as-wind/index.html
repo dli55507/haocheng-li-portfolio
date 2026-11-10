@@ -123,7 +123,7 @@
           <p class="eyebrow">システム</p>
           <h2>物理、シェーダー &amp; 破壊表現</h2>
         </div>
-        <p class="count">05 のハイライト</p>
+        <p class="count">04 のハイライト</p>
       </div>
 
       <div class="split" style="margin-bottom:72px">
@@ -169,7 +169,7 @@
         </figure>
       </div>
 
-      <div class="split" style="margin-bottom:72px">
+      <div class="split">
         <div data-reveal>
           <p class="eyebrow">04 · シミュレーション</p>
           <h3 style="font-size:26px;margin-top:8px">カニのツタ渡り</h3>
@@ -183,16 +183,6 @@
         </figure>
       </div>
 
-      <div class="split">
-        <div data-reveal>
-          <p class="eyebrow">05 · 破壊表現</p>
-          <h3 style="font-size:26px;margin-top:8px">レベルを切り分ける</h3>
-        </div>
-        <div class="prose" data-reveal>
-          <p>このゲームにはインポートしたメッシュが一切ないため、破壊とは生成されたジオメトリを切ることを意味します。Level 06 の崩れるトンネルでは、洞窟の天井が自らを砕きます。頂点を溶接し、<strong>union-find</strong> で閉じた岩ごとにまとめ、長い岩はランダムな平面でクリップし（<strong>Sutherland–Hodgman</strong>、すべての属性を補間）、各切断面をファンで塞ぐことで、すべての破片が閉じたソリッドのまま保たれます。</p>
-          <p>切断処理はフレームあたり 4 ms の予算を持つコルーチンとして動き、プレイヤーがまだ 60 m 手前にいるうちに始まります。610 個の岩が 140–220 フレームかけて 169 個の破片になります。小さなプロップは、隣り合う破片同士で継ぎ目を共有するあらかじめ切り分けたピースで壊れ、破片は物理エンジンをまったく通さないため、コストはフレームあたり約 0.013 ms です。</p>
-        </div>
-      </div>
     </section>
   </main>
 
